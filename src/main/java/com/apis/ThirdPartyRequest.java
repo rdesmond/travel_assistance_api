@@ -4,17 +4,21 @@ import org.springframework.http.HttpMethod;
 
 /**
  * @author cass
+ *
+ * Document what to use this for
  */
 public class ThirdPartyRequest {
 
+    //this is the api url to call
     private String url;
-    private HttpMethod requestType; //GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE;
+    //GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE;
+    private HttpMethod requestType;
 
     public ThirdPartyRequest(String url, HttpMethod requestType) {
-        super();
         this.url = url;
         this.requestType = requestType;
     }
+
     public String getUrl() {
         return url;
     }
