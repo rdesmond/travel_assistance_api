@@ -78,8 +78,7 @@ public class GenericRequestHandler<T, V>{
     public void exampleGet() {
         new GenericRequestHandler<String, String>()
                 .callAPI(
-                        new ThirdPartyRequest("http://exampleWebsite", HttpMethod.GET),
-                        "", String.class);
+                        new ThirdPartyRequest("http://exampleWebsite", HttpMethod.GET), String.class);
     }
     public void examplePost(){
         HttpHeaders headers = new HttpHeaders();
