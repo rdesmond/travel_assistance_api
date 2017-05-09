@@ -3,9 +3,9 @@ package com.apis;
 import org.springframework.http.HttpMethod;
 
 /**
- * @author cass
+ * Contains the details of a client-side API request. Used by the GenericRequestHandler
  *
- * Document what to use this for
+ * @author cass
  */
 public class ThirdPartyRequest {
 
