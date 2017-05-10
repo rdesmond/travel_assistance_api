@@ -2,13 +2,17 @@ package com.services.users;
 
 import com.mappers.UserMapper;
 import com.models.User;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
 /**
- *
+ * Contains any business logic and calls the mapper methods for User
  * @author cass
  */
+@Service
 public class UserService {
 
     @Autowired
@@ -36,10 +40,10 @@ public class UserService {
 
    //Delete
     public String deleteById(int id){
-        int success = mapper.deleteById(id);
-        if (success > 0)
-            return "successfully deleted";
+        int result = mapper.deleteById(id);
+        if (result > 0)
+            return "successfully deleted User Id " + id;
         else
-            return "failed to delete";
+            return "failed to delete User Id " + id;
     }
 }

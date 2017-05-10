@@ -33,8 +33,8 @@ public class Application extends SpringBootServletInitializer {
 	}
 
 	@RequestMapping("/")
-	public String getQuote(){
-		return "You're awesome.";
+	public String dontForget(){
+		return "You're awesome :)";
 	}
 
 }

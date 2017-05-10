@@ -1,45 +1,49 @@
 package com.mappers;
 
 import com.models.User;
+import org.apache.ibatis.annotations.*;
+
 import java.util.ArrayList;
 
 /**
- * This needs MyBatis before it'll work. I also need to update the sql queries once the user fields are defined in the
- * database
+ * Executes SQL queries for User
  * @author cass
  */
-//@Mapper
+@Mapper
 public interface UserMapper {
 
     //SQL queries
     String GET_ALL = "select * from users";
-    String GET_BY_ID = "select * from users where userId = #{id}";
-    String DELETE_BY_ID = "delete from users where userId = #{id}";
+    String GET_BY_ID = "select * from users where id = #{id}";
+    String DELETE_BY_ID = "delete from users where id = #{id}";
     String UPDATE_BY_ID = "update users set " +
-            "firstName = #{firstName}, " +
-            "lastName = #{lastName} " +
+            "first_name = #{first_name}, " +
+            "last_name = #{last_name}, " +
+            "email_address = #{email_address}, " +
+            "address = #{address}, " +
+            "phone_number = #{phone_number} " +
             "where id = #{id}";
     String ADD_NEW = "insert into users " +
-            "(firstName, lastName)" +
-            "values (#{firstName}, #{lastName})";
+            "(first_name, last_name, email_address, address, phone_number)" +
+            "values (#{first_name}, #{last_name}, #{email_address}, #{address}, #{phone_number})";
 
     //Create
-//    @Insert(ADD_NEW)
-//    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Insert(ADD_NEW)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     int addNew(Object user);
 
     //Read
-//    @Select(GET_ALL)
+    @Select(GET_ALL)
     ArrayList<User> getAll();
 
-//    @Select(GET_BY_ID)
+    @Select(GET_BY_ID)
     User getById(int id);
 
     //Update
-//    @Update(UPDATE_BY_ID)
+    @Update(UPDATE_BY_ID)
     int updateById(Object user);
 
     //Delete
-//    @Delete(DELETE_BY_ID)
+    @Delete(DELETE_BY_ID)
     int deleteById(int id);
 }
