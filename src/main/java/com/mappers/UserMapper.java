@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Executes SQL queries for User
  * @author cass
  */
-//@Mapper
+@Mapper
 public interface UserMapper {
 
     //SQL queries

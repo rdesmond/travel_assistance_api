@@ -2,13 +2,17 @@ package com.services.users;
 
 import com.mappers.UserMapper;
 import com.models.User;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
 /**
  * Contains any business logic and calls the mapper methods for User
  * @author cass
  */
+@Service
 public class UserService {
 
     @Autowired
