@@ -1,8 +1,8 @@
 package com.models.allmyles.flights.search.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.models.allmyles.flights.details.response.BaggageTier;
-import com.models.allmyles.flights.details.response.Price;
+import com.models.allmyles.flights.details.BaggageTier;
+import com.models.allmyles.flights.details.Price;
 
 import java.util.Arrays;
 

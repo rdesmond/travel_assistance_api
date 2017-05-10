@@ -1,4 +1,4 @@
-package com.models.allmyles.flights.details.response;
+package com.models.allmyles.flights.details;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
