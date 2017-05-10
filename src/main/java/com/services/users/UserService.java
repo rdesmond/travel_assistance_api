@@ -42,8 +42,8 @@ public class UserService {
     public String deleteById(int id){
         int result = mapper.deleteById(id);
         if (result > 0)
-            return "successfully deleted " + id;
+            return "successfully deleted User Id " + id;
         else
-            return "failed to delete " + id;
+            return "failed to delete User Id " + id;
     }
 }

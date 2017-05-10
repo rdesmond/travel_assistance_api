@@ -18,9 +18,9 @@ public interface UserMapper {
     String DELETE_BY_ID = "delete from users where id = #{id}";
     String UPDATE_BY_ID = "update users set " +
             "first_name = #{first_name}, " +
-            "last_name = #{last_name} " +
-            "email = #{email} " +
-            "address = #{address} " +
+            "last_name = #{last_name}, " +
+            "email_address = #{email_address}, " +
+            "address = #{address}, " +
             "phone_number = #{phone_number} " +
             "where id = #{id}";
     String ADD_NEW = "insert into users " +

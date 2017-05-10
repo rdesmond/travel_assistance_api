@@ -39,7 +39,7 @@ public class UserResource {
         }
     }
     @RequestMapping("/{id}")
-    public APIResponse getById(@RequestParam(value="id")int id) {
+    public APIResponse getById(@PathVariable(value="id")int id) {
         User user = service.getById(id);
         return new APIResponse(HttpStatus.OK, user);
     }
@@ -53,7 +53,7 @@ public class UserResource {
 
     //Delete
     @RequestMapping(path="/", method= RequestMethod.DELETE)
-    public APIResponse deleteById(@RequestParam(value="userId")int id){
+    public APIResponse deleteById(@RequestParam(value="id")int id){
         String message = service.deleteById(id);
         return new APIResponse(HttpStatus.OK, message);
     }
