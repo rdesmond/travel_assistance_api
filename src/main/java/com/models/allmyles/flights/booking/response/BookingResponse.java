@@ -1,4 +1,4 @@
-package com.models.allmyles.flights.booking;
+package com.models.allmyles.flights.booking.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.models.allmyles.flights.booking.request.Contact;
@@ -50,7 +50,7 @@ import com.models.allmyles.flights.search.response.FlightResult;
  504 ‘external gateway timed out - book request might very well have been successful!’: The booking might, or might not
  have been completed in this case. The flow should be stopped, and the customer should be contacted to complete the
  booking.
- 
+
  504 ‘Could not retrieve virtual credit card, flight not booked. An IRN should be sent to payment provider now.’
  */
 

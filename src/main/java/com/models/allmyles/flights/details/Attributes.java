@@ -3,6 +3,39 @@ package com.models.allmyles.flights.details;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ Field Names
+ -------------------------------------------------
+
+ Passenger:
+
+ namePrefix
+ firstName
+ middleName
+ lastName
+ gender
+ birthDate
+ document/type
+ document/id
+ document/issueCountry
+ document/dateOfExpiry
+
+
+ Contact and Billing Info:
+
+ name
+ email
+ address/addressLine1
+ address/addressLine2
+ address/addressLine3
+ address/cityName
+ address/zipCode
+ address/countryCode
+ phone/countryCode
+ phone/areaCode
+ phone/phoneNumber
+ */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Attributes {
     //one of Field Names
