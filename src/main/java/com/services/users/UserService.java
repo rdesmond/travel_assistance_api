@@ -19,9 +19,9 @@ public class UserService {
     private UserMapper mapper;
 
     //Create
-    public User addNew(Object user){
-        int id = mapper.addNew(user);
-        return mapper.getById(id);
+    public User addNew(User user){
+        mapper.addNew(user);
+        return mapper.getById(user.getId());
     }
 
     //Read
@@ -33,7 +33,7 @@ public class UserService {
     }
 
    //Update
-   public User updateById(Object user){
+   public User updateById(User user){
        int id = mapper.updateById(user);
        return mapper.getById(id);
    }

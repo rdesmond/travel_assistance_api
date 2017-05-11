@@ -23,7 +23,7 @@ public class UserResource {
 
     //Create
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public APIResponse addNew(@RequestBody Object user) {
+    public APIResponse addNew(@RequestBody User user) {
         User newUser = service.addNew(user);
         return new APIResponse(HttpStatus.OK, newUser);
     }
@@ -46,7 +46,7 @@ public class UserResource {
 
     //Update
     @RequestMapping(method = RequestMethod.PATCH, value = "/")
-    public APIResponse updateById(@RequestBody Object user) {
+    public APIResponse updateById(@RequestBody User user) {
         User newUser = service.updateById(user);
         return new APIResponse(HttpStatus.OK, newUser);
     }

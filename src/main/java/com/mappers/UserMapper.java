@@ -29,8 +29,8 @@ public interface UserMapper {
 
     //Create
     @Insert(ADD_NEW)
-    @Options(useGeneratedKeys = true, keyProperty = "id")
-    int addNew(Object user);
+    @Options(useGeneratedKeys = true)
+    void addNew(Object user);
 
     //Read
     @Select(GET_ALL)
