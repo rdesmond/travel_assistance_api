@@ -78,7 +78,7 @@ public class GenericRequestHandler<T, V>{
     }
 
     /**
-     * used to set the value of successfulRequest
+     * used to determine if the request was successful and throw appropriate exception if not
      * @param status HttpStatus enum passed from the ResponseEntity object
      * @return true if status is 2xx, else false
      * @throws RestClientException - client or server specific exception thrown based on status code
