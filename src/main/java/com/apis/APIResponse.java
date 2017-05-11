@@ -1,6 +1,7 @@
 package com.apis;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.client.*;
 
 /** Generic class that is used as a return type for methods in the Resource class
  * This allows the HTTP request to return an object, a status, and a message

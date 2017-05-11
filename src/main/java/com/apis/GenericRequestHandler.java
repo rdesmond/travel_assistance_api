@@ -1,11 +1,11 @@
 package com.apis;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -32,12 +32,20 @@ public class GenericRequestHandler<T, V>{
      * @return - the body of the responseEntity - this is a object of the genericClass specified above
      */
     //no headers or body
-    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> genericClass){
+    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> genericClass)
+    throws RestClientException{
 
         HttpEntity<T> entity = new HttpEntity<T>(null,null);
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
                 entity, genericClass);
-        return response.getBody();
+        try {
+            if (isSuccessful(response.getStatusCode()))
+                return response.getBody();
+            else throw new RestClientException(response.getStatusCode().getReasonPhrase());
+        }
+             catch (RestClientException e) {
+                throw e;
+        }
     }
     /** @param requestBody - body of the request that gets passed to the HttpEntity constructor
      */
@@ -70,12 +78,31 @@ public class GenericRequestHandler<T, V>{
     }
 
     /**
+     * used to set the value of successfulRequest
+     * @param status HttpStatus enum passed from the ResponseEntity object
+     * @return true if status is 2xx, else false
+     * @throws RestClientException - client or server specific exception thrown based on status code
+     */
+    public boolean isSuccessful(HttpStatus status)
+            throws RestClientException {
+        if (status.is2xxSuccessful())
+            return true;
+        else if (status.is4xxClientError())
+            throw new HttpClientErrorException(status);
+        else if (status.is5xxServerError())
+            throw new HttpServerErrorException(status);
+        else throw new RestClientException(status.getReasonPhrase());
+    }
+
+}
+
+    /**
      * Functional example resource class using the generic request handler. This could also be used outside of a
      * resource class by just calling the methods, beerGet and beerPost. Note the @RestController annotation on the
      * class and the @Autowired injection of the GenericRequestHandler.
      */
 //    @RestController
-//    public class BeerResource {
+//    class BeerResource {
 //
 //        @Autowired
 //        private GenericRequestHandler handler;
@@ -87,7 +114,8 @@ public class GenericRequestHandler<T, V>{
 //            return handler.callAPI(callBeer, Beer.class);
 //        }
 //
-//        //This won't actually work as we can't post to the beer API
+//        //This won't actually work as we can't post to the beer API, still functional syntax though. You can remove
+//        //the headers part if you don't need it.
 //        @RequestMapping(method = RequestMethod.POST, value = "/beer")
 //        public Object beerPost(){
 //            HttpHeaders headers = new HttpHeaders();
@@ -97,7 +125,7 @@ public class GenericRequestHandler<T, V>{
 //            return handler.callAPI(callBeer,"Body of the request", String.class, headers);
 //        }
 //    }
-}
+
 
 
 
