@@ -30,7 +30,7 @@ public interface UserMapper {
     //Create
     @Insert(ADD_NEW)
     @Options(useGeneratedKeys = true)
-    void addNew(Object user);
+    void addNew(User user);
 
     //Read
     @Select(GET_ALL)
@@ -41,7 +41,7 @@ public interface UserMapper {
 
     //Update
     @Update(UPDATE_BY_ID)
-    int updateById(Object user);
+    int updateById(User user);
 
     //Delete
     @Delete(DELETE_BY_ID)

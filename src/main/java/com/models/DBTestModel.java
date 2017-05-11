@@ -1,16 +1,21 @@
 package com.models;
 
-/**
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+/** Example pojo, what database response maps to
+ *
  * Created by tdavis on 5/8/17.
+ * Updated by Cass on 5/11/17 to utilize APIResponse Object
  */
-/*
-* example pojo, what database response maps to
-*/
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DBTestModel {
 
-    int id;
-    String first_name;
-    String last_name;
+    private int id;
+    private String first_name = "";
+    private String last_name = "";
 
     public int getId() {
         return id;
