@@ -71,7 +71,7 @@ public class BookingResponse {
     //contains a copy of the data received in the Booking call
     Contact contactInfo;
 
-    //contains a copy of the result from the Search call’s response
+    //contains a copy of the result from the search call’s response
     FlightResult flightData;
 
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-//You send the two requests in separate sessions - in this case you have to include Flexible Date Search Reference in
+//You send the two requests in separate sessions - in this case you have to include Flexible Date search Reference in
 // the regular search request, and set to_be_referenced to True in the flexible date search request.
 public class FlexibleDateSearchReference {
     //the Cookie sent in the header of the referenced flexible date search

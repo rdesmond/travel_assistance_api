@@ -75,7 +75,7 @@ public class TicketingResponse {
     //the purchased tickets
     Ticket[] tickets;
 
-    //contains a copy of the result from the Search call’s response
+    //contains a copy of the result from the search call’s response
     FlightResult flightData;
 
     //contains a copy of the data received in the Booking call
