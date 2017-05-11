@@ -38,7 +38,7 @@ public class FlightDetails {
     //contains the final price of the ticket (including the credit card surcharge, but not the baggages)
     Price price;
 
-    //contains an exact copy of the result from the Search call’s response
+    //contains an exact copy of the result from the search call’s response
     FlightResult result;
 
     //contains whether certain options are enabled for this flight

@@ -35,7 +35,7 @@ public class SearchFlights {
     //(optional) list of airlines to filter results to, given as their two character IATA code
     String[] preferredAirlines;
 
-    //(optional) number of days to call Flexible Date Search with, between 1-3
+    //(optional) number of days to call Flexible Date search with, between 1-3
     byte extraDays;
 
     //(optional) sorting and filtering options
