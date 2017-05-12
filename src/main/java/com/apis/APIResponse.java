@@ -29,6 +29,10 @@ public class APIResponse<T> {
         this.status = status;
         this.message = status.getReasonPhrase();
     }
+
+    public APIResponse(){
+
+    }
     public HttpStatus getStatus() {
         return status;
     }
@@ -40,5 +44,16 @@ public class APIResponse<T> {
     public Object getBody() {
         return body;
     }
-}
 
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public void setStatus(HttpStatus status) {
+        this.status = status;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}

@@ -3,8 +3,11 @@ package com.models.allmyles.flights.search.request;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+//POST /flights
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SearchFlights {
+    //root container
     //departure location, given as IATA code
     String fromLocation;
 
