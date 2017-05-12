@@ -1,11 +1,16 @@
 package com.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by tdavis on 5/8/17.
  */
 /*
 * This is a test response object. This needs to be rewritten as generic
 */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DBTestResponse {
 
     //response from http call (sql query)
