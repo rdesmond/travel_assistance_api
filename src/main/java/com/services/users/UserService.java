@@ -46,4 +46,7 @@ public class UserService {
         else
             return "failed to delete User Id " + id;
     }
+    public boolean exists(User user) {
+        return getById(user.getId()) != null;
+    }
 }

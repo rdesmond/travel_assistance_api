@@ -1,7 +1,6 @@
 package com.apis;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.*;
 
 /** Generic class that is used as a return type for methods in the Resource class
  * This allows the HTTP request to return an object, a status, and a message
@@ -10,14 +9,14 @@ import org.springframework.web.client.*;
  */
 public class APIResponse<T> {
 
-    private Object data;
+    private Object body;
     private HttpStatus status;
     private String message;
 
-    //Constructor used when data is retrieved
-    public APIResponse(HttpStatus status, T data) {
+    //Constructor used when body is retrieved
+    public APIResponse(HttpStatus status, T body) {
         this.status = status;
-        this.data = data;
+        this.body = body;
         this.message = status.getReasonPhrase();
     }
     //Constructor used when only status and a custom message are needed
@@ -38,8 +37,8 @@ public class APIResponse<T> {
         return message;
     }
 
-    public Object getData() {
-        return data;
+    public Object getBody() {
+        return body;
     }
 }
 

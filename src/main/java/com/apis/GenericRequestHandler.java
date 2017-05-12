@@ -27,17 +27,17 @@ public class GenericRequestHandler<T, V>{
      * It is overloaded several times for use with or without headers and body.
      *
      * @param thirdPartyRequest - you'll need to create an instance of this class that contains the specific API details
-     * @param genericClass - the class you want the response returned to, which is passed to the restTemplate.exchange
+     * @param pojoModelClass - the class you want the response returned to, which is passed to the restTemplate.exchange
      *                     method
-     * @return - the body of the responseEntity - this is a object of the genericClass specified above
+     * @return - the body of the responseEntity - this is a object of the pojoModelClass specified above
      */
     //no headers or body
-    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> genericClass)
+    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> pojoModelClass)
     throws RestClientException{
 
         HttpEntity<T> entity = new HttpEntity<T>(null,null);
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
-                entity, genericClass);
+                entity, pojoModelClass);
         try {
             if (isSuccessful(response.getStatusCode()))
                 return response.getBody();
@@ -50,31 +50,49 @@ public class GenericRequestHandler<T, V>{
     /** @param requestBody - body of the request that gets passed to the HttpEntity constructor
      */
     // body, no headers
-    public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> genericClass){
+    public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> pojoModelClass) {
 
         HttpEntity<T> entity = new HttpEntity<T>(requestBody);
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
-                entity, genericClass);
-        return response.getBody();
+                entity, pojoModelClass);
+        try {
+            if (isSuccessful(response.getStatusCode()))
+                return response.getBody();
+            else throw new RestClientException(response.getStatusCode().getReasonPhrase());
+        } catch (RestClientException e) {
+            throw e;
         }
+    }
 
     /** @param headers - an instance of HttpHeaders that consists of a name and value
      */
     // headers, no body
-    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> genericClass, HttpHeaders headers){
+    public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> pojoModelClass, HttpHeaders headers){
 
         HttpEntity<T> entity = new HttpEntity<T>(headers);
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
-                entity, genericClass);
-        return response.getBody();
+                entity, pojoModelClass);
+        try {
+            if (isSuccessful(response.getStatusCode()))
+                return response.getBody();
+            else throw new RestClientException(response.getStatusCode().getReasonPhrase());
+        } catch (RestClientException e) {
+            throw e;
+        }
     }
     // body and headers
-    public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> genericClass, HttpHeaders headers){
+    public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> pojoModelClass, HttpHeaders headers){
 
         HttpEntity<T> entity = new HttpEntity<T>(requestBody, headers);
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
-                entity, genericClass);
-        return response.getBody();
+                entity, pojoModelClass);
+        try {
+            if (isSuccessful(response.getStatusCode()))
+                return response.getBody();
+            else throw new RestClientException(response.getStatusCode().getReasonPhrase());
+        } catch (RestClientException e) {
+            throw e;
+        }
     }
 
     /**
@@ -94,6 +112,9 @@ public class GenericRequestHandler<T, V>{
         else throw new RestClientException(status.getReasonPhrase());
     }
 
+    public RestTemplate getRestTemplate() {
+        return restTemplate;
+    }
 }
 
     /**

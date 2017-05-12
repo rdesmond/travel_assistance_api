@@ -65,4 +65,26 @@ public class User {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
+
+    public User(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
+    public User(int id, String first_name, String last_name) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
+    public User(int id, String first_name, String last_name, String email_address, String address, String phone_number) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email_address = email_address;
+        this.address = address;
+        this.phone_number = phone_number;
+    }
 }
+
+
