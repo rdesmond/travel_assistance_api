@@ -2,6 +2,9 @@ package com.models.allmyles.cars.search_cars.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Created by yovaliceroman on 5/8/17.
  */
@@ -22,7 +25,7 @@ public class Filters {
     @Override
     public String toString() {
         return "Filters{" +
-                "type='" + type +
+                "type='" + Arrays.toString(type) +
                 '}';
     }
 }

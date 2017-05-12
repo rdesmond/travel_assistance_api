@@ -2,6 +2,8 @@ package com.models.allmyles.common.booking.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
+
 /**
  * Created by yovaliceroman on 5/9/17.
  */
@@ -94,10 +96,10 @@ public class Booking {
     @Override
     public String toString() {
         return "Booking{" +
-                "bookBasket='" + bookBasket + '\'' +
+                "bookBasket='" + Arrays.toString(bookBasket) + '\'' +
                 "billingInfo='" + billingInfo + '\'' +
                 "contactInfo='" + contactInfo + '\'' +
-                "persons='" + persons + '\'' +
+                "persons='" + Arrays.toString(persons) + '\'' +
                 "userData='" + userData + '\'' +
                 "speedyBoarding='" + speedyBoarding + '\'' +
                 "groupBaggage='" + groupBaggage + '\'' +
