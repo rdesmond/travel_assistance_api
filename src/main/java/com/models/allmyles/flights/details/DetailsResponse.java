@@ -15,6 +15,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  tabs and trying to select a flight from an old result list.
  */
 
+/**
+ Request
+
+ GET /flights/:booking_id
+
+ booking_id is the booking ID of the Combination to get the details of
+ */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DetailsResponse {
     //root container
