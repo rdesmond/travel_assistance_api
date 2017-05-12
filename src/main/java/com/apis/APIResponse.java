@@ -46,7 +46,7 @@ public class APIResponse<T> {
     }
 
     public void setData(Object data) {
-        this.data = data;
+        this.body = body;
     }
 
     public void setStatus(HttpStatus status) {
