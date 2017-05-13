@@ -19,7 +19,7 @@ public class SearchService {
         HttpHeaders headers = new HttpHeaders();
 
         headers.add("Content-type", "application/json");
-//        headers.add("Cookie", "cookie from customer computer");
+        headers.add("Cookie", "Cookie");
         headers.add("X-Auth-Token", "af327616-9978");
 
         ThirdPartyRequest request = new ThirdPartyRequest(
