@@ -1,60 +1,77 @@
 package com.apis;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.*;
 
 /** Generic class that is used as a return type for methods in the Resource class
  * This allows the HTTP request to return an object, a status, and a message
+ * Set as a @Bean in Application.java
  * @param <T>
  * @author cass
  */
 public class APIResponse<T> {
 
-    private Object data;
+    private Object body;
     private HttpStatus status;
     private String message;
 
-    //Constructor used when data is retrieved
-    public APIResponse(HttpStatus status, T data) {
+    // Constructor for body only
+    public APIResponse(T body) {
+        this.body = body;
+        this.status = HttpStatus.OK;
+        this.message = "Success";
+    }
+    // Constructor for body and status
+    public APIResponse(T body, HttpStatus status) {
+        this.body = body;
         this.status = status;
-        this.data = data;
         this.message = status.getReasonPhrase();
     }
-    //Constructor used when only status and a custom message are needed
-    public APIResponse(HttpStatus status, String message){
-        this.status = status;
-        this.message = message;
-    }
-    //Constructor used when only status and pre-selected message are needed
+    // Constructor for status only
     public APIResponse(HttpStatus status){
         this.status = status;
         this.message = status.getReasonPhrase();
     }
-
+    // Constructor for status and custom message
+    public APIResponse(HttpStatus status, String message){
+        this.status = status;
+        this.message = message;
+    }
+    // Constructor for custom message only
+    public APIResponse(String  message){
+        this.message = message;
+    }
+    // Empty Constructor
     public APIResponse(){
+    }
 
+    public Object getBody() {
+        return body;
+    }
+    public void setBody(Object body) {
+        this.body = body;
     }
     public HttpStatus getStatus() {
         return status;
     }
-
+    // This will overwrite any previous message
+    public void setStatus(HttpStatus status) {
+        this.status = status;
+        this.message = status.getReasonPhrase();
+    }
     public String getMessage() {
         return message;
     }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
-    public void setStatus(HttpStatus status) {
-        this.status = status;
-    }
-
+    // This can be overwritten by te setStatus method
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "APIResponse{" +
+                "body=" + body +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

@@ -3,7 +3,8 @@ package com.apis;
 import org.springframework.http.HttpMethod;
 
 /**
- * Contains the details of a client-side API request. Used by the GenericRequestHandler
+ * Contains the details of a client-side API request. Used by the GenericRequestHandler. Set as a @Bean in
+ * Application.java
  *
  * @author cass
  */
@@ -17,6 +18,9 @@ public class ThirdPartyRequest {
     public ThirdPartyRequest(String url, HttpMethod requestType) {
         this.url = url;
         this.requestType = requestType;
+    }
+    //default constructor
+    public ThirdPartyRequest() {
     }
 
     public String getUrl() {

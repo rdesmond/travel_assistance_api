@@ -94,15 +94,15 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "vehicle_id='" + vehicle_id + '\'' +
-                "vendor_id='" + vendor_id + '\'' +
-                "vendor_name='" + vendor_name + '\'' +
-                "vendor_code='" + vendor_code + '\'' +
                 "available='" + available + '\'' +
-                "traits='" + traits + '\'' +
-                "price='" + price + '\'' +
-                "unlimited='" + unlimited + '\'' +
-                "overage_fee='" + overage_fee +
+                ", traits='" + traits + '\'' +
+                ", vehicle_id='" + vehicle_id + '\'' +
+                ", vendor_name='" + vendor_name + '\'' +
+                ", overage_fee=" + overage_fee + '\'' +
+                ", price='" + price + '\'' +
+                ", vendor_id'=" + vendor_id + '\'' +
+                ", unlimited='" + unlimited + '\'' +
+                ", vendor_code='" + vendor_code +
                 '}';
     }
 }

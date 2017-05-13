@@ -1,6 +1,7 @@
 package com.models.allmyles.cars.search_cars.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by yovaliceroman on 5/9/17.
@@ -9,17 +10,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CarTraits {
 
-    String class1;
+    @JsonProperty("class")
+    String classValue;
     String type;
     String transmission;
     boolean air_conditioning;
 
-    public String getClass1() {
-        return class1;
+    @JsonProperty("class")
+    public String getClassValue() {
+        return classValue;
     }
 
-    public void setClass1(String class1) {
-        this.class1 = class1;
+    @JsonProperty("class")
+    public void setClassValue(String classValue) {
+        this.classValue = classValue;
     }
 
     public String getType() {
@@ -49,10 +53,10 @@ public class CarTraits {
     @Override
     public String toString() {
         return "CarTraits{" +
-                "class='" + class1 + '\'' +
-                "type='" + type + '\'' +
                 "transmission='" + transmission + '\'' +
-                "air_conditioning='" + air_conditioning +
+                ", air_conditioning='" + air_conditioning + '\'' +
+                ", type='" + type + '\'' +
+                ", classValue='" + classValue +
                 '}';
     }
 }

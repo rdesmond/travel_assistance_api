@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class OverageFee {
 
     String unit;
-    int include_distance;
+    int included_distance;
     float amount;
     String currency;
 
@@ -23,11 +23,11 @@ public class OverageFee {
     }
 
     public int getInclude_distance() {
-        return include_distance;
+        return included_distance;
     }
 
     public void setInclude_distance(int include_distance) {
-        this.include_distance = include_distance;
+        this.included_distance = include_distance;
     }
 
     public float getAmount() {
@@ -49,10 +49,10 @@ public class OverageFee {
     @Override
     public String toString() {
         return "OverageFee{" +
-                "unit='" + unit + '\'' +
-                "include_distance='" + include_distance + '\'' +
-                "amount='" + amount + '\'' +
-                "currency='" + currency +
+                "currency='" + currency + '\'' +
+                ", amount='" + amount + '\'' +
+                ", unit='" + unit + '\'' +
+                ", included_distance='" + included_distance +
                 '}';
     }
 }
