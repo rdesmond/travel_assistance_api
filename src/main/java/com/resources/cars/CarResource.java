@@ -26,7 +26,7 @@ public class CarResource {
                                   @RequestParam(value="end_date") String end_date,
                                   @RequestParam(value="type") String type) {
         APIResponse apiResponse = new APIResponse();
-        apiResponse.setData(carService.searchCars(airport_code, start_date, end_date, type));
+        apiResponse.setBody(carService.searchCars(airport_code, start_date, end_date, type));
         apiResponse.setStatus(HttpStatus.OK);
         return apiResponse;
     }
