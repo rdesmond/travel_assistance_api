@@ -2,6 +2,8 @@ package com.models.allmyles.cars.search_cars.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
+
 /**
  * Created by yovaliceroman on 5/9/17.
  */
@@ -22,7 +24,7 @@ public class CarResults {
     @Override
     public String toString() {
         return "CarResults{" +
-                "car_results='" + car_results +
+                "car_results='" + Arrays.toString(car_results) +
                 '}';
     }
 }

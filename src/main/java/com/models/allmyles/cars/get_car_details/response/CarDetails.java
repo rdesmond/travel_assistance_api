@@ -2,6 +2,8 @@ package com.models.allmyles.cars.get_car_details.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
+
 /**
  * Created by yovaliceroman on 5/9/17.
  */
@@ -58,10 +60,10 @@ public class CarDetails {
     @Override
     public String toString() {
         return "CarDetails{" +
-                "locations='" + locations + '\'' +
+                "locations='" + Arrays.toString(locations) + '\'' +
                 "car_model='" + car_model + '\'' +
-                "included='" + included + '\'' +
-                "extras='" + extras + '\'' +
+                "included='" + Arrays.toString(included) + '\'' +
+                "extras='" + Arrays.toString(extras) + '\'' +
                 "rules='" + rules +
                 '}';
     }

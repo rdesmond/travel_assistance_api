@@ -2,6 +2,8 @@ package com.models.allmyles.common.payment.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
+
 /**
  * Created by yovaliceroman on 5/9/17.
  */
@@ -41,7 +43,7 @@ public class Payment {
     public String toString() {
         return "Payment{" +
                 "paymentID='" + paymentId + '\'' +
-                "basket='" + basket + '\'' +
+                "basket='" + Arrays.toString(basket) + '\'' +
                 "finalPrice='" + finalPrice +
                 '}';
     }
