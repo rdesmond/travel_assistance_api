@@ -35,7 +35,7 @@ public class DBTestResource {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public APIResponse addNew(@RequestBody DBTestModel model) {
         DBTestModel newDBTestModel = service.addNew(model);
-        return new APIResponse(HttpStatus.OK, newDBTestModel);
+        return new APIResponse(newDBTestModel, HttpStatus.OK);
     }
 
     //Read
@@ -45,20 +45,20 @@ public class DBTestResource {
         if (models.size() == 0) {
             return new APIResponse(HttpStatus.NO_CONTENT);
         } else {
-            return new APIResponse(HttpStatus.OK, models);
+            return new APIResponse(models, HttpStatus.OK);
         }
     }
     @RequestMapping("/{id}")
     public APIResponse getById(@PathVariable(value="id")int id) {
         DBTestModel model = service.getById(id);
-        return new APIResponse(HttpStatus.OK, model);
+        return new APIResponse(model, HttpStatus.OK);
     }
 
     //Update
     @RequestMapping(method = RequestMethod.PATCH, value = "/")
     public APIResponse updateById(@RequestBody DBTestModel model) {
         DBTestModel newDBTestModel = service.updateById(model);
-        return new APIResponse(HttpStatus.OK, newDBTestModel);
+        return new APIResponse(newDBTestModel, HttpStatus.OK);
     }
 
     //Delete
