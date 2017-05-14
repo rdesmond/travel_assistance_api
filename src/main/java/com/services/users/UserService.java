@@ -16,6 +16,9 @@ public class UserService {
     @Autowired
     private UserMapper mapper;
 
+    //need to add in exception handling
+    //what to do if user already exists/doesn't exist
+
     //Create
     public User addNew(User user){
         mapper.addNew(user);
