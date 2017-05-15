@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * Contains any business logic and calls the mapper methods for User
+ * Receives the User or UserId from the resource, passes to the mapper, and returns an APIResponse.
+ * Each method will check if the user exists and respond accordingly and handle any exceptions.
+ *
  * @author cass
  */
 @Service

@@ -30,30 +30,22 @@ public class UserResource {
     //Read
     @RequestMapping("/")
     public APIResponse getAll(){
-        ArrayList<User> users = service.getAll();
-        if (users.size() == 0) {
-            return new APIResponse(HttpStatus.NO_CONTENT);
-        } else {
-            return new APIResponse(users, HttpStatus.OK);
-        }
+        return service.getAll();
     }
     @RequestMapping("/{id}")
     public APIResponse getById(@PathVariable(value="id")int id) {
-        User user = service.getById(id);
-        return new APIResponse(user, HttpStatus.OK);
+        return service.getById(id);
     }
 
     //Update
     @RequestMapping(method = RequestMethod.PATCH, value = "/")
     public APIResponse updateById(@RequestBody User user) {
-        User newUser = service.updateById(user);
-        return new APIResponse(newUser, HttpStatus.OK);
+        return service.updateById(user);
     }
 
     //Delete
     @RequestMapping(path="/", method= RequestMethod.DELETE)
     public APIResponse deleteById(@RequestParam(value="id")int id){
-        String message = service.deleteById(id);
-        return new APIResponse(HttpStatus.OK, message);
+        return service.deleteById(id);
     }
 }
