@@ -25,9 +25,9 @@ public class UserService {
     // Create
     public APIResponse addNew(User user){
         try{
-            //test is user exists
+            // test if user already exists
             if (exists(user)){
-                response.setStatus(HttpStatus.OK);
+                response.setStatus(HttpStatus.BAD_REQUEST);
                 response.setMessage("User already exists");
             }else {
                 // create the user in the DB by passing the user object from the resource to the mapper
@@ -49,7 +49,9 @@ public class UserService {
     // Read
     public APIResponse getAll(){
         try {
+            // make sure there are users
             ArrayList<User> users = mapper.getAll();
+            // set APIResponse body, status, and message
             if (users.size() == 0) {
                 response.setStatus(HttpStatus.NO_CONTENT);
                 response.setMessage("No users found");
@@ -58,37 +60,48 @@ public class UserService {
                 response.setStatus(HttpStatus.OK);
             }
         }catch (Exception readError) {
+            // set APIResponse status and message
             response.setStatus(HttpStatus.BAD_REQUEST);
             response.setMessage("Unable to process request: "+ readError.getMessage());
         }
+        // return APIResponse object to resource
         return response;
     }
     public APIResponse getById(int id){
         try {
             // make sure user exists
             if (exists(mapper.getById(id))) {
+                // set APIResponse body, status, and message
                 response.setBody(mapper.getById(id));
                 response.setStatus(HttpStatus.OK);
             }else {
-                response.setStatus(HttpStatus.OK);
+                response.setStatus(HttpStatus.BAD_REQUEST);
                 response.setMessage("User does not exist");
             }
         }catch (Exception readError) {
+            // set APIResponse status and message
             response.setStatus(HttpStatus.BAD_REQUEST);
             response.setMessage("Unable to process request: "+ readError.getMessage());
         }
+        // return APIResponse object to resource
         return response;
     }
 
    // Update
    public APIResponse updateById(User user){
        try{
-           // update the user in the DB by passing the user object from the resource to the mapper
-           int id = mapper.updateById(user);
-           // set APIResponse body, status, and message
-           response.setBody(mapper.getById(id));
-           response.setStatus(HttpStatus.OK);
-           response.setMessage("Successfully updated UserId: "+ user.getId());
+           // make sure user exists
+           if (exists(user)) {
+               // update the user in the DB by passing the user object from the resource to the mapper
+               int id = mapper.updateById(user);
+               // set APIResponse body, status, and message
+               response.setBody(mapper.getById(id));
+               response.setStatus(HttpStatus.OK);
+               response.setMessage("Successfully updated UserId: "+ user.getId());
+           } else {
+               response.setStatus(HttpStatus.BAD_REQUEST);
+               response.setMessage("User does not exist");
+           }
        } catch (Exception updateError) {
            // set APIResponse status and message
            response.setStatus(HttpStatus.BAD_REQUEST);
@@ -110,11 +123,11 @@ public class UserService {
                    response.setStatus(HttpStatus.OK);
                    response.setMessage("Successfully deleted User Id " + id);
                } else {
-                   response.setStatus(HttpStatus.OK);
+                   response.setStatus(HttpStatus.BAD_REQUEST);
                    response.setMessage("Failed to delete User Id " + id);
                }
            } else {
-               response.setStatus(HttpStatus.OK);
+               response.setStatus(HttpStatus.BAD_REQUEST);
                response.setMessage("User does not exist");
            }
        } catch (Exception deleteError) {
@@ -127,8 +140,9 @@ public class UserService {
     }
 
     // Validate
-    boolean exists(User user) {
+    private boolean exists(User user) {
         try {
+            // returns true if the id or email returns a user
             return (mapper.getById(user.getId()) != null | mapper.getByEmail(user.getEmail_address()) != null);
         }catch (Exception readError){
             return false;
