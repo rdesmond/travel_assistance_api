@@ -1,4 +1,4 @@
-package com.apis.Examples;
+package com.apis.examples;
 
 import com.apis.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;

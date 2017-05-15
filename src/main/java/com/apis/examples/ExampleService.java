@@ -1,4 +1,4 @@
-package com.apis.Examples;
+package com.apis.examples;
 
 import com.apis.APIResponse;
 import com.apis.GenericRequestHandler;

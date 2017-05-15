@@ -12,6 +12,8 @@ public class APIResponse<T> {
 
     private Object body;
     private HttpStatus status;
+    // The message is automatically set in the setStatus method.
+    // If you want a custom message, make sure to set it after the status.
     private String message;
 
     // Constructor for body only
