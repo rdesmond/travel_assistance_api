@@ -12,6 +12,13 @@ public class Price {
     float amount;
     String currency;
 
+    public Price(){}
+
+    public Price(float amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
     public float getAmount() {
         return amount;
     }

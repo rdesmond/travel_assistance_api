@@ -13,6 +13,12 @@ public class CarResults {
 
     Car[] car_results;
 
+    public CarResults(){}
+
+    public CarResults(Car[] car_results) {
+        this.car_results = car_results;
+    }
+
     public Car[] getCar_results() {
         return car_results;
     }

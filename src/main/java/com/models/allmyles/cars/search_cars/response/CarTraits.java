@@ -10,11 +10,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CarTraits {
 
-    @JsonProperty("class")
     String classValue;
     String type;
     String transmission;
     boolean air_conditioning;
+
+    public CarTraits(){}
+
+    public CarTraits(String classValue, String type, String transmission, boolean air_conditioning) {
+        this.classValue = classValue;
+        this.type = type;
+        this.transmission = transmission;
+        this.air_conditioning = air_conditioning;
+    }
 
     @JsonProperty("class")
     public String getClassValue() {

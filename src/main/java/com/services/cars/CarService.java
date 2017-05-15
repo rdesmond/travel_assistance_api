@@ -38,7 +38,7 @@ public class CarService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Auth-Token", "af327616-9978");
-        headers.add("Content-type", "application/json");
+        headers.add("Content-Type", "application/json");
         headers.add("Cookie", "Cookie");
         ThirdPartyRequest request = new ThirdPartyRequest(
                 "https://dev.allmyles.com/v2.0/cars", HttpMethod.POST);

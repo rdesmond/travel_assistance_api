@@ -14,6 +14,15 @@ public class OverageFee {
     float amount;
     String currency;
 
+    public OverageFee(){}
+
+    public OverageFee(String unit, int included_distance, float amount, String currency) {
+        this.unit = unit;
+        this.included_distance = included_distance;
+        this.amount = amount;
+        this.currency = currency;
+    }
+
     public String getUnit() {
         return unit;
     }

@@ -2,11 +2,14 @@ package com.apis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
 
 /**
  * Generic class to call 3rd party APIs
@@ -46,6 +49,12 @@ public class GenericRequestHandler<T, V>{
     throws RestClientException{
 
         HttpEntity<T> entity = new HttpEntity<T>(null,null);
+
+        //Jackson2HttpMessageConverter mapping, support response type (application/text_plain)
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN));
+        restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
+
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
                 entity, pojoModelClass);
         status = response.getStatusCode();
@@ -64,6 +73,12 @@ public class GenericRequestHandler<T, V>{
     public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> pojoModelClass) {
 
         HttpEntity<T> entity = new HttpEntity<T>(requestBody);
+
+        //Jackson2HttpMessageConverter mapping, support response type (application/text_plain)
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN));
+        restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
+
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
                 entity, pojoModelClass);
         status = response.getStatusCode();
@@ -83,6 +98,12 @@ public class GenericRequestHandler<T, V>{
     public V callAPI(ThirdPartyRequest thirdPartyRequest, Class<V> pojoModelClass, HttpHeaders headers){
 
         HttpEntity<T> entity = new HttpEntity<T>(headers);
+
+        //Jackson2HttpMessageConverter mapping, support response type (application/text_plain)
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN));
+        restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
+
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
                 entity, pojoModelClass);
         status = response.getStatusCode();
@@ -99,6 +120,12 @@ public class GenericRequestHandler<T, V>{
     public V callAPI(ThirdPartyRequest thirdPartyRequest, T requestBody, Class<V> pojoModelClass, HttpHeaders headers){
 
         HttpEntity<T> entity = new HttpEntity<T>(requestBody, headers);
+
+        //Jackson2HttpMessageConverter mapping, support response type (application/text_plain)
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN));
+        restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
+
         ResponseEntity<V> response = restTemplate.exchange(thirdPartyRequest.getUrl(), thirdPartyRequest.getRequestType(),
                 entity, pojoModelClass);
         status = response.getStatusCode();
