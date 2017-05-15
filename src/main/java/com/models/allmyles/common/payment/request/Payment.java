@@ -11,16 +11,15 @@ import java.util.Arrays;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Payment {
 
-    String paymentId;
+    String payuId;
     String[] basket;
-    FinalPrice finalPrice;
 
-    public String getPaymentId() {
-        return paymentId;
+    public String getPayuId() {
+        return payuId;
     }
 
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
+    public void setPayuId(String payuId) {
+        this.payuId = payuId;
     }
 
     public String[] getBasket() {
@@ -31,20 +30,11 @@ public class Payment {
         this.basket = basket;
     }
 
-    public FinalPrice getFinalPrice() {
-        return finalPrice;
-    }
-
-    public void setFinalPrice(FinalPrice finalPrice) {
-        this.finalPrice = finalPrice;
-    }
-
     @Override
     public String toString() {
         return "Payment{" +
-                "paymentID='" + paymentId + '\'' +
-                "basket='" + Arrays.toString(basket) + '\'' +
-                "finalPrice='" + finalPrice +
+                "payuID='" + payuId + '\'' +
+                "basket='" + Arrays.toString(basket) +
                 '}';
     }
 }

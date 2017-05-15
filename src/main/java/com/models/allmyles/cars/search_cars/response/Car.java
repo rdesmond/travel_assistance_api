@@ -19,6 +19,20 @@ public class Car {
     boolean unlimited;
     OverageFee overage_fee;
 
+    public Car(){}
+
+    public Car(String vehicle_id, String vendor_id, String vendor_name, String vendor_code, boolean available, CarTraits traits, Price price, boolean unlimited, OverageFee overage_fee) {
+        this.vehicle_id = vehicle_id;
+        this.vendor_id = vendor_id;
+        this.vendor_name = vendor_name;
+        this.vendor_code = vendor_code;
+        this.available = available;
+        this.traits = traits;
+        this.price = price;
+        this.unlimited = unlimited;
+        this.overage_fee = overage_fee;
+    }
+
     public String getVehicle_id() {
         return vehicle_id;
     }
