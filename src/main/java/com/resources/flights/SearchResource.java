@@ -6,7 +6,6 @@ import com.services.flights.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
 //POST /flights
 
 @RestController
