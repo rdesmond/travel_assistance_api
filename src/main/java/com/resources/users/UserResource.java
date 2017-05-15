@@ -24,8 +24,7 @@ public class UserResource {
     //Create
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public APIResponse addNew(@RequestBody User user) {
-        User newUser = service.addNew(user);
-        return new APIResponse(newUser, HttpStatus.CREATED);
+        return service.addNew(user);
     }
 
     //Read

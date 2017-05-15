@@ -85,6 +85,10 @@ public class User {
         this.address = address;
         this.phone_number = phone_number;
     }
+
+    public User() {
+        //default
+    }
 }
 
 

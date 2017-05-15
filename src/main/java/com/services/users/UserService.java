@@ -1,8 +1,10 @@
 package com.services.users;
 
+import com.apis.APIResponse;
 import com.mappers.UserMapper;
 import com.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
@@ -15,14 +17,28 @@ public class UserService {
 
     @Autowired
     private UserMapper mapper;
+    @Autowired
+    private APIResponse response;
 
     //need to add in exception handling
-    //what to do if user already exists/doesn't exist
+    //what to do if user already exists/doesn't exist - require unique identifier?
 
     //Create
-    public User addNew(User user){
+    public APIResponse addNew(User user){
+        try{
+        // create the user in the DB by passing the user object from the resource to the mapper
         mapper.addNew(user);
-        return mapper.getById(user.getId());
+        // set APIResponse body, status, and message
+        response.setBody(mapper.getById(user.getId()));
+        response.setStatus(HttpStatus.CREATED);
+        response.setMessage("Successfully created UserId: "+ user.getId());
+        } catch (Exception mappingError) {
+        // set APIResponse status and message
+        response.setStatus(HttpStatus.CONFLICT);
+        response.setMessage("Unable to process request: "+ mappingError.getMessage());
+        }
+        // return APIResponse object to resource
+        return response;
     }
 
     //Read
