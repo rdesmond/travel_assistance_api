@@ -10,9 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Contact {
     Address address;
     String email;
-    String firstName;
-    String middleName;
-    String lastName;
+    String name;
     Phone phone;
 
     public Address getAddress() {
@@ -31,28 +29,12 @@ public class Contact {
         this.email = email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Phone getPhone() {
@@ -68,9 +50,7 @@ public class Contact {
         return "Contact{" +
                 "address='" + address + '\'' +
                 "email='" + email + '\'' +
-                "firstName='" + firstName + '\'' +
-                "middleName='" + middleName + '\'' +
-                "lastName='" + lastName + '\'' +
+                "name='" + name + '\'' +
                 "phone='" + phone +
                 '}';
     }

@@ -20,21 +20,7 @@ public class CarService {
     @Autowired
         private GenericRequestHandler handler;
 
-    public CarResults searchCars(String airport_code, String start_date, String end_date, String type){
-
-        SearchCars search = new SearchCars();
-
-        Filters filters = new Filters();
-
-        filters.setType(new String[] {type});
-
-        search.setAirport_code(airport_code);
-
-        search.setStart_date(start_date);
-
-        search.setEnd_date(end_date);
-
-        search.setFilter(filters);
+    public CarResults searchCars(SearchCars car){
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Auth-Token", "af327616-9978");
@@ -42,6 +28,6 @@ public class CarService {
         headers.add("Cookie", "Cookie");
         ThirdPartyRequest request = new ThirdPartyRequest(
                 "https://dev.allmyles.com/v2.0/cars", HttpMethod.POST);
-        return (CarResults) handler.callAPI(request, search, CarResults.class, headers);
+        return (CarResults) handler.callAPI(request, car, CarResults.class, headers);
     }
 }
