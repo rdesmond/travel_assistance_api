@@ -2,7 +2,6 @@ package com.services.cars;
 
 import com.apis.GenericRequestHandler;
 import com.apis.ThirdPartyRequest;
-import com.models.allmyles.cars.search_cars.request.Filters;
 import com.models.allmyles.cars.search_cars.request.SearchCars;
 import com.models.allmyles.cars.search_cars.response.CarResults;
 import org.springframework.beans.factory.annotation.Autowired;
