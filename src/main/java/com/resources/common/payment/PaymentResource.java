@@ -1,13 +1,11 @@
 package com.resources.common.payment;
 
 import com.apis.APIResponse;
+import com.models.allmyles.common.payment.Payment;
 import com.services.common.payment.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by yovaliceroman on 5/15/17.
@@ -21,11 +19,15 @@ public class PaymentResource {
     PaymentService paymentService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public APIResponse payment(@RequestParam(value="payuId") String payuId,
-                               @RequestParam(value ="basket") String[] basket) {
+    public APIResponse paymentCommon(@RequestBody Payment payments) {
         APIResponse apiResponse = new APIResponse();
-        apiResponse.setBody(paymentService.payment(payuId, basket));
-        apiResponse.setStatus(HttpStatus.OK);
+        try {
+            apiResponse.setBody(paymentService.paymentCarsHotels(payments));
+            apiResponse.setStatus(HttpStatus.OK);
+        }catch (Exception e){
+            apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            apiResponse.setMessage("Unable to retrive payment information" + e.getMessage());
+        }
         return apiResponse;
     }
 }

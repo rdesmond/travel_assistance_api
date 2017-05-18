@@ -16,6 +16,9 @@ public class SearchRequest {
     //number of people wanting to book a room
     String occupancy;
 
+    //nationality of the occupant
+    String nationality;
+
 
     public String getCityCode() {
         return cityCode;
@@ -49,6 +52,13 @@ public class SearchRequest {
         this.occupancy = occupancy;
     }
 
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
 
     @Override
     public String toString() {
@@ -57,6 +67,7 @@ public class SearchRequest {
                 ", arrivalDate='" + arrivalDate + '\'' +
                 ", leaveDate='" + leaveDate + '\'' +
                 ", occupancy='" + occupancy + '\'' +
+                ", nationality='" + nationality + '\'' +
                 '}';
     }
 }

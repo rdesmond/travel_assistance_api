@@ -1,4 +1,4 @@
-package com.models.allmyles.common.payment.request;
+package com.models.allmyles.common.payment;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

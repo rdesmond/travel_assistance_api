@@ -13,8 +13,11 @@ public class Hotel {
     //An associative array mapping each amenity
     Amenities amenities;
 
-    //The latitude component of the coordinates of the hotel
-    Float longitude;
+    // //The latitude component of the coordinates of the hotel
+    float latitude;
+
+    //The longitude component of the coordinates of the hotel
+    float longitude;
 
     Price max_rate;
 
@@ -25,6 +28,8 @@ public class Hotel {
 
     //Link to a small image representing the hotel
     String thumbnail;
+
+    float distance;
 
 
     public String getHotel_id() {
@@ -59,11 +64,19 @@ public class Hotel {
         this.amenities = amenities;
     }
 
-    public Float getLongitude() {
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
@@ -99,6 +112,13 @@ public class Hotel {
         this.thumbnail = thumbnail;
     }
 
+    public float getDistance() {
+        return distance;
+    }
+
+    public void setDistance(float distance) {
+        this.distance = distance;
+    }
 
     @Override
     public String toString() {
@@ -107,11 +127,14 @@ public class Hotel {
                 ", hotel_name='" + hotel_name + '\'' +
                 ", chain_name='" + chain_name + '\'' +
                 ", amenities=" + amenities +
+                ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", max_rate=" + max_rate +
                 ", min_rate=" + min_rate +
                 ", stars=" + stars +
                 ", thumbnail='" + thumbnail + '\'' +
+                ", longitude=" + longitude +
+                ", distsnce=" + distance +
                 '}';
     }
 }

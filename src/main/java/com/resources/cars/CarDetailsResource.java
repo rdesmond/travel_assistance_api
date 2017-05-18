@@ -1,13 +1,11 @@
 package com.resources.cars;
 
 import com.apis.APIResponse;
+import com.models.allmyles.cars.get_car_details.request.Details;
 import com.services.cars.CarDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by yovaliceroman on 5/15/17.
@@ -21,10 +19,16 @@ public class CarDetailsResource {
     CarDetailsService carDetailsService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/details")
-    public APIResponse getCarDetails(@RequestParam(value="vehicle_id") String vehicle_id) {
+    public APIResponse getCarDetails(@RequestBody Details carDetails) {
         APIResponse apiResponse = new APIResponse();
-        apiResponse.setBody(carDetailsService.getCarDetails(vehicle_id));
-        apiResponse.setStatus(HttpStatus.OK);
+        try {
+            apiResponse.setBody(carDetailsService.getCarDetails(carDetails));
+            apiResponse.setStatus(HttpStatus.OK);
+        }catch (Exception e){
+            apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            apiResponse.setMessage("Unable to retrive cars details " + e.getMessage());
+        }
+
         return apiResponse;
     }
 }
