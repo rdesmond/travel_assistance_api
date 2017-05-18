@@ -28,6 +28,12 @@ public class APIResponse<T> {
         this.status = status;
         this.message = status.getReasonPhrase();
     }
+    // Constructor for body, status and custom message
+    public APIResponse(T body, HttpStatus status,String message ) {
+        this.body = body;
+        this.status = status;
+        this.message = message;
+    }
     // Constructor for status only
     public APIResponse(HttpStatus status){
         this.status = status;

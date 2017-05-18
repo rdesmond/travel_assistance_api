@@ -140,7 +140,7 @@ public class UserService {
     }
 
     // Validate
-    private boolean exists(User user) {
+    public boolean exists(User user) {
         try {
             // returns true if the id or email returns a user
             return (mapper.getById(user.getId()) != null | mapper.getByEmail(user.getEmail_address()) != null);
