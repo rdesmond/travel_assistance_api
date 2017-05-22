@@ -136,19 +136,19 @@ public class Amenities {
     @Override
     public String toString() {
         return "Amenities{" +
-                "restaurant=" + restaurant +
+                "air_conditioning=" + air_conditioning +
                 ", bar=" + bar +
+                ", business_center=" + business_center +
+                ", gym=" + gym +
+                ", internet=" + internet +
                 ", laundry=" + laundry +
+                ", meeting_rooms=" + meeting_rooms +
+                ", parking=" + parking +
+                ", restaurant=" + restaurant +
                 ", room_service=" + room_service +
                 ", safe_deposit_box=" + safe_deposit_box +
-                ", parking=" + parking +
-                ", swimming=" + swimming +
-                ", internet=" + internet +
-                ", gym=" + gym +
-                ", air_conditioning=" + air_conditioning +
-                ", business_center=" + business_center +
-                ", meeting_rooms=" + meeting_rooms +
                 ", spa=" + spa +
+                ", swimming=" + swimming +
                 ", pets_allowed=" + pets_allowed +
                 '}';
     }

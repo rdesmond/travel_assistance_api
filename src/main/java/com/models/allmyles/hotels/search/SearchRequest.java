@@ -14,7 +14,7 @@ public class SearchRequest {
     String leaveDate;
 
     //number of people wanting to book a room
-    String occupancy;
+    int occupancy;
 
     //nationality of the occupant
     String nationality;
@@ -44,11 +44,11 @@ public class SearchRequest {
         this.leaveDate = leaveDate;
     }
 
-    public String getOccupancy() {
+    public int getOccupancy() {
         return occupancy;
     }
 
-    public void setOccupancy(String occupancy) {
+    public void setOccupancy(int occupancy) {
         this.occupancy = occupancy;
     }
 
@@ -64,9 +64,9 @@ public class SearchRequest {
     public String toString() {
         return "SearchRequest{" +
                 "cityCode='" + cityCode + '\'' +
+                ", occupancy='" + occupancy + '\'' +
                 ", arrivalDate='" + arrivalDate + '\'' +
                 ", leaveDate='" + leaveDate + '\'' +
-                ", occupancy='" + occupancy + '\'' +
                 ", nationality='" + nationality + '\'' +
                 '}';
     }

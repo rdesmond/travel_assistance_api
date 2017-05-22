@@ -29,6 +29,7 @@ public class Hotel {
     //Link to a small image representing the hotel
     String thumbnail;
 
+    //The distance form the city center in kilometers
     float distance;
 
 
@@ -123,18 +124,17 @@ public class Hotel {
     @Override
     public String toString() {
         return "Hotel{" +
-                "hotel_id='" + hotel_id + '\'' +
-                ", hotel_name='" + hotel_name + '\'' +
+                "amenities=" + amenities +
                 ", chain_name='" + chain_name + '\'' +
-                ", amenities=" + amenities +
+                ", hotel_id='" + hotel_id + '\'' +
+                ", hotel_name='" + hotel_name + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", max_rate=" + max_rate +
                 ", min_rate=" + min_rate +
                 ", stars=" + stars +
                 ", thumbnail='" + thumbnail + '\'' +
-                ", longitude=" + longitude +
-                ", distsnce=" + distance +
+                ", distance=" + distance +
                 '}';
     }
 }

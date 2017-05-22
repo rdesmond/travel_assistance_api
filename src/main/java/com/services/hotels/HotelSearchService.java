@@ -7,6 +7,7 @@ import com.models.allmyles.hotels.search.SearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,7 +25,7 @@ public class HotelSearchService {
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Auth-Token", "af327616-9978");
         headers.add("Content-Type", "application/json");
-        headers.add("Cookie", "Cookie");
+        headers.add("Cookie", "Cookie123");
         ThirdPartyRequest request = new ThirdPartyRequest(
                 "https://dev.allmyles.com/v2.0/hotels", HttpMethod.POST);
         return (SearchResponse) handler.callAPI(request, search, SearchResponse.class, headers);
