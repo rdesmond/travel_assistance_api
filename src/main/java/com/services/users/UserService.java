@@ -2,7 +2,7 @@ package com.services.users;
 
 import com.apis.APIResponse;
 import com.mappers.UserMapper;
-import com.models.User;
+import com.models.internal.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

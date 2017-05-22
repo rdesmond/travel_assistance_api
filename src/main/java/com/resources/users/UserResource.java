@@ -1,12 +1,10 @@
 package com.resources.users;
 
 import com.apis.APIResponse;
-import com.models.User;
+import com.models.internal.User;
 import com.services.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
 
 /**
  * Maps the URI to a method that calls the UserService methods and returns a Response object with a status code, message,

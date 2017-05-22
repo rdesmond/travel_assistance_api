@@ -1,6 +1,6 @@
 package com.mappers;
 
-import com.models.User;
+import com.models.internal.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;

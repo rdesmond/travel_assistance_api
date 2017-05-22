@@ -1,7 +1,7 @@
 package com.resources;
 
 import com.apis.APIResponse;
-import com.models.Trip;
+import com.models.internal.Trip;
 import com.services.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 package com.mappers;
 
-import com.models.Trip;
+import com.models.internal.Trip;
 import org.apache.ibatis.annotations.*;
 import java.util.ArrayList;
 

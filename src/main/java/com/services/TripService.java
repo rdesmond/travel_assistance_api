@@ -2,7 +2,7 @@ package com.services;
 
 import com.apis.APIResponse;
 import com.mappers.TripMapper;
-import com.models.Trip;
+import com.models.internal.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

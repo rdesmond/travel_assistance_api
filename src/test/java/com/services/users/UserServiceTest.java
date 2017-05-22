@@ -1,7 +1,7 @@
 package com.services.users;
 
 import com.apis.APIResponse;
-import com.models.User;
+import com.models.internal.User;
 import com.resources.users.UserResource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
