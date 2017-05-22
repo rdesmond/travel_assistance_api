@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
  GET /hotels/:hotel_id/rooms/:room_id
 
- hotel_id is the ID of the Hotel the room belongs to, room_id is the ID of the Room to get the details of.
+ hotel_id is the ID of the TripHotel the room belongs to, room_id is the ID of the Room to get the details of.
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)

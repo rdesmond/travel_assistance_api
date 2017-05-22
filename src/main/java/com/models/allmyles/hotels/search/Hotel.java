@@ -123,7 +123,7 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
+        return "TripHotel{" +
                 "amenities=" + amenities +
                 ", chain_name='" + chain_name + '\'' +
                 ", hotel_id='" + hotel_id + '\'' +
