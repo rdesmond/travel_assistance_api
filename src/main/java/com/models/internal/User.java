@@ -17,6 +17,24 @@ public class User {
     private String email_address = "";
     private String address = "";
     private String phone_number = "";
+    private String password = "";
+    private String authority = "";
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
     public int getId() {
         return id;
