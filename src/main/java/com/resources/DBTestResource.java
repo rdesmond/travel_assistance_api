@@ -62,7 +62,7 @@ public class DBTestResource {
     }
 
     //Delete
-    @RequestMapping(path="/", method= RequestMethod.DELETE)
+    @RequestMapping(value="/", method= RequestMethod.DELETE)
     public APIResponse deleteById(@RequestParam(value="id")int id){
         String message = service.deleteById(id);
         return new APIResponse(HttpStatus.OK, message);

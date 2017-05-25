@@ -1,10 +1,16 @@
 package com.services.users;
 
 import com.apis.APIResponse;
+import com.mappers.OauthRepository;
 import com.mappers.UserMapper;
 import com.models.internal.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
@@ -14,13 +20,26 @@ import java.util.ArrayList;
  *
  * @author cass
  */
-@Service
-public class UserService {
+@Component
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserMapper mapper;
+
     @Autowired
     private APIResponse response;
+
+    @Autowired
+    private OauthRepository oauthRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        org.springframework.security.core.userdetails.User user = oauthRepository.getByUsername(s);
+        return user;
+    }
 
     // Create
     public APIResponse addNew(User user){
@@ -32,6 +51,7 @@ public class UserService {
             }else {
                 // create the user in the DB by passing the user object from the resource to the mapper
                 mapper.addNew(user);
+                mapper.setPassword(user.getEmail_address(), passwordEncoder.encode(user.getPassword()));
                 // set APIResponse body, status, and message
                 response.setBody(mapper.getById(user.getId()));
                 response.setStatus(HttpStatus.CREATED);

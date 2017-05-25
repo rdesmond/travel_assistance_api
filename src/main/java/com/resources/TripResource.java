@@ -43,7 +43,7 @@ public class TripResource {
     }
 
     //Delete
-    @RequestMapping(path="/", method= RequestMethod.DELETE)
+    @RequestMapping(method= RequestMethod.DELETE, value = "/")
     public APIResponse deleteById(@RequestParam(value="id")int id){
         return service.deleteById(id);
     }

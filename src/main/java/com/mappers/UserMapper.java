@@ -26,12 +26,18 @@ public interface UserMapper {
     String ADD_NEW = "insert into users " +
             "(first_name, last_name, email_address, address, phone_number)" +
             "values (#{first_name}, #{last_name}, #{email_address}, #{address}, #{phone_number})";
+
+    String SET_PASSWORD="insert into auth_details (username, password) values (#{username}, #{password})";
+
     String GET_BY_EMAIL = "select * from users where email_address = #{email_address}";
 
     //Create
     @Insert(ADD_NEW)
     @Options(useGeneratedKeys = true)
     void addNew(User user);
+
+    @Insert(SET_PASSWORD)
+    void setPassword(String username, String password);
 
     //Read
     @Select(GET_ALL)

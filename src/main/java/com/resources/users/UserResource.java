@@ -42,7 +42,7 @@ public class UserResource {
     }
 
     //Delete
-    @RequestMapping(path="/", method= RequestMethod.DELETE)
+    @RequestMapping(value="/", method= RequestMethod.DELETE)
     public APIResponse deleteById(@RequestParam(value="id")int id){
         return service.deleteById(id);
     }
