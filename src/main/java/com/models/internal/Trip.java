@@ -2,7 +2,9 @@ package com.models.internal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.models.TripTag;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +22,12 @@ public class Trip {
     private Date start_date;
     private Date end_date;
     private int num_travellers;
-    private List<Object> destinations;
-    private List<Object> flights;
-    private List<Object> hotels;
-    private List<Object> cars;
+    private BigDecimal budget;
+    private List<Destination> destinations;
+    private List<TripFlight> flights;
+    private List<TripHotel> hotels;
+    private List<TripCar> cars;
+    private List<TripTag> tags;
 
 
     //Constructors
@@ -39,8 +43,8 @@ public class Trip {
     public Trip(int user_id) {
         this.user_id = user_id;
     }
-    public Trip(int user_id, Date start_date, Date end_date, int num_travellers, List<Object> destinations,
-                List<Object> flights, List<Object> hotels, List<Object> cars) {
+    public Trip(int user_id, Date start_date, Date end_date, int num_travellers, List<Destination> destinations,
+                List<TripFlight> flights, List<TripHotel> hotels, List<TripCar> cars) {
         this.user_id = user_id;
         this.start_date = start_date;
         this.end_date = end_date;
@@ -91,35 +95,51 @@ public class Trip {
         this.num_travellers = num_travellers;
     }
 
-    public List<Object> getDestinations() {
+    public List<Destination> getDestinations() {
         return destinations;
     }
 
-    public void setDestinations(List<Object> destinations) {
+    public void setDestinations(List<Destination> destinations) {
         this.destinations = destinations;
     }
 
-    public List<Object> getFlights() {
+    public List<TripFlight> getFlights() {
         return flights;
     }
 
-    public void setFlights(List<Object> flights) {
+    public void setFlights(List<TripFlight> flights) {
         this.flights = flights;
     }
 
-    public List<Object> getHotels() {
+    public List<TripHotel> getHotels() {
         return hotels;
     }
 
-    public void setHotels(List<Object> hotels) {
+    public void setHotels(List<TripHotel> hotels) {
         this.hotels = hotels;
     }
 
-    public List<Object> getCars() {
+    public List<TripCar> getCars() {
         return cars;
     }
 
-    public void setCars(List<Object> cars) {
+    public void setCars(List<TripCar> cars) {
         this.cars = cars;
+    }
+
+    public BigDecimal getBudget() {
+        return budget;
+    }
+
+    public void setBudget(BigDecimal budget) {
+        this.budget = budget;
+    }
+
+    public List<TripTag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<TripTag> tags) {
+        this.tags = tags;
     }
 }
