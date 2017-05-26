@@ -19,6 +19,15 @@ public class SearchRequest {
     //nationality of the occupant
     String nationality;
 
+    public SearchRequest(){}
+
+    public SearchRequest(String cityCode, int occupancy, String arrivalDate, String leaveDate, String nationality) {
+        this.cityCode = cityCode;
+        this.arrivalDate = arrivalDate;
+        this.leaveDate = leaveDate;
+        this.occupancy = occupancy;
+        this.nationality = nationality;
+    }
 
     public String getCityCode() {
         return cityCode;

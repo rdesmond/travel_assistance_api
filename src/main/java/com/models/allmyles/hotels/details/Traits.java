@@ -61,10 +61,10 @@ public class Traits {
     public String toString() {
         return "Traits{" +
                 "bath=" + bath +
-                ", shower=" + shower +
-                ", nonsmoking=" + nonsmoking +
-                ", suite=" + suite +
                 ", category='" + category + '\'' +
+                ", nonsmoking=" + nonsmoking +
+                ", shower=" + shower +
+                ", suite=" + suite +
                 '}';
     }
 }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class POI {
     Airports[] airports;
-    CityCenter cityCenter;
+    CityCenter city_center;
     Miscellaneous[] miscellaneous;
 
 
@@ -19,11 +19,11 @@ public class POI {
     }
 
     public CityCenter getCityCenter() {
-        return cityCenter;
+        return city_center;
     }
 
     public void setCityCenter(CityCenter cityCenter) {
-        this.cityCenter = cityCenter;
+        this.city_center = cityCenter;
     }
 
     public Miscellaneous[] getMiscellaneous() {
@@ -39,7 +39,7 @@ public class POI {
     public String toString() {
         return "POI{" +
                 "airports=" + Arrays.toString(airports) +
-                ", cityCenter=" + cityCenter +
+                ", cityCenter=" + city_center +
                 ", miscellaneous=" + Arrays.toString(miscellaneous) +
                 '}';
     }

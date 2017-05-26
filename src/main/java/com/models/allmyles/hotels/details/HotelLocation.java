@@ -82,13 +82,13 @@ public class HotelLocation {
     @Override
     public String toString() {
         return "HotelLocation{" +
-                "country='" + country + '\'' +
-                ", state='" + state + '\'' +
-                ", city='" + city + '\'' +
-                ", address='" + address + '\'' +
-                ", zip_code='" + zip_code + '\'' +
+                "address='" + address + '\'' +
                 ", area='" + area + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
                 ", recommended_transport='" + recommended_transport + '\'' +
+                ", state='" + state + '\'' +
+                ", zip_code='" + zip_code + '\'' +
                 '}';
     }
 }

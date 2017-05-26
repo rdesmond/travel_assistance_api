@@ -11,6 +11,13 @@ public class Details {
 
     String vehicle_id;
 
+    public Details() {
+    }
+
+    public Details(String vehicle_id) {
+        this.vehicle_id = vehicle_id;
+    }
+
     public String getVehicle_id() {
         return vehicle_id;
     }

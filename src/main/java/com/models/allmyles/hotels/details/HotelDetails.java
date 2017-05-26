@@ -1,7 +1,6 @@
 package com.models.allmyles.hotels.details;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.models.allmyles.hotels.search.Amenities;
 import java.util.Arrays;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -46,6 +45,16 @@ public class HotelDetails {
     //contains the available rooms
     Room[] rooms;
 
+    String category;
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getChain_code() {
         return chain_code;
@@ -171,21 +180,22 @@ public class HotelDetails {
     @Override
     public String toString() {
         return "HotelDetails{" +
-                "chain_code='" + chain_code + '\'' +
+                "amenities=" + amenities +
+                ", category=" + category +
+                ", chain_code='" + chain_code + '\'' +
                 ", chain_name='" + chain_name + '\'' +
+                ", contact_info=" + contact_info +
+                ", description='" + description + '\'' +
                 ", hotel_code='" + hotel_code + '\'' +
                 ", hotel_name='" + hotel_name + '\'' +
                 ", location=" + location +
-                ", points_of_interest=" + Arrays.toString(points_of_interest) +
-                ", description='" + description + '\'' +
-                ", contact_info=" + contact_info +
-                ", price=" + price +
-                ", thumbnail='" + thumbnail + '\'' +
                 ", photos=" + Arrays.toString(photos) +
-                ", amenities=" + amenities +
-                ", stars=" + stars +
-                ", rules=" + rules +
+                ", points_of_interest=" + Arrays.toString(points_of_interest) +
+                ", price=" + price +
                 ", rooms=" + Arrays.toString(rooms) +
+                ", rules=" + rules +
+                ", stars=" + stars +
+                ", thumbnail='" + thumbnail + '\'' +
                 '}';
     }
 }

@@ -1,21 +1,22 @@
 package com.models.allmyles.hotels.details;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Arrays;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HotelContactInfo {
-    String phone_numbers;
+    String[] phone_numbers;
 
     String email;
 
     String website;
 
 
-    public String getPhone_numbers() {
+    public String[] getPhone_numbers() {
         return phone_numbers;
     }
 
-    public void setPhone_numbers(String phone_numbers) {
+    public void setPhone_numbers(String[] phone_numbers) {
         this.phone_numbers = phone_numbers;
     }
 
@@ -39,7 +40,7 @@ public class HotelContactInfo {
     @Override
     public String toString() {
         return "HotelContactInfo{" +
-                "phone_numbers='" + phone_numbers + '\'' +
+                "phone_numbers=" + Arrays.toString(phone_numbers) +
                 ", email='" + email + '\'' +
                 ", website='" + website + '\'' +
                 '}';

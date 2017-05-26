@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RoomPrice {
-    Float amount;
+    float amount;
 
     //One of ‘day’ or ‘trip’, specifies which duration the price covers
     String covers;
@@ -13,12 +13,14 @@ public class RoomPrice {
     // given amount is the highest one during the trip.
     boolean rate_varies;
 
+    String currency;
 
-    public Float getAmount() {
+
+    public float  getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
@@ -38,6 +40,13 @@ public class RoomPrice {
         this.rate_varies = rate_varies;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
     @Override
     public String toString() {
@@ -45,6 +54,7 @@ public class RoomPrice {
                 "amount=" + amount +
                 ", covers='" + covers + '\'' +
                 ", rate_varies=" + rate_varies +
+                ", currency=" + currency +
                 '}';
     }
 }
