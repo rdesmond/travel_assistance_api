@@ -26,6 +26,28 @@ public class Room {
     //Contains the amount left to be booked of this room
     int quantity;
 
+    //The exact description of the board offered with the room
+    String board;
+
+    //The generic category the board belongs to (no_meal, breakfast_
+    // inclueded, half_board, full_board, all_inclusive, dinner_only)
+    String board_category;
+
+    public String getBoard() {
+        return board;
+    }
+
+    public void setBoard(String board) {
+        this.board = board;
+    }
+
+    public String getBoard_category() {
+        return board_category;
+    }
+
+    public void setBoard_category(String board_category) {
+        this.board_category = board_category;
+    }
 
     public String getRoom_id() {
         return room_id;
@@ -87,13 +109,15 @@ public class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "room_id='" + room_id + '\'' +
+                "bed_type='" + bed_type + '\'' +
                 ", booking_id='" + booking_id + '\'' +
-                ", price=" + price +
-                ", room_type=" + room_type +
-                ", bed_type='" + bed_type + '\'' +
                 ", description='" + description + '\'' +
+                ", price=" + price +
                 ", quantity=" + quantity +
+                ", room_id='" + room_id + '\'' +
+                ", room_type=" + room_type +
+                ", board=" + board +
+                ", board_category=" + board_category +
                 '}';
     }
 }

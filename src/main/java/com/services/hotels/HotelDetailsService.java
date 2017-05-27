@@ -4,7 +4,6 @@ import com.apis.GenericRequestHandler;
 import com.apis.ThirdPartyRequest;
 import com.models.allmyles.hotels.details.DetailsRequest;
 import com.models.allmyles.hotels.details.DetailsResponse;
-import com.models.allmyles.hotels.search.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

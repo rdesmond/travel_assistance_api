@@ -5,26 +5,26 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RoomPrice {
     //The total cost of booking the hotel for the guest. This includes the charge we require right now.
-    Float total;
+    float total;
 
     //The amount of money we need to charge the guest to complete the booking. If this amount is zero, no transaction
     // needs to be made and you can go on to booking straight away.
-    Float charge;
+    float charge;
 
 
-    public Float getTotal() {
+    public float getTotal() {
         return total;
     }
 
-    public void setTotal(Float total) {
+    public void setTotal(float total) {
         this.total = total;
     }
 
-    public Float getCharge() {
+    public float getCharge() {
         return charge;
     }
 
-    public void setCharge(Float charge) {
+    public void setCharge(float charge) {
         this.charge = charge;
     }
 

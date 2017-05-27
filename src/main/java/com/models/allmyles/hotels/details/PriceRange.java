@@ -5,27 +5,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PriceRange {
     //Rate of the cheapest room at the hotel
-    Float minimum;
+    float minimum;
 
     //Rate of the most expensive room at the hotel
-    Float maximum;
+    float maximum;
 
     String currency;
 
 
-    public Float getMinimum() {
+    public float getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Float minimum) {
+    public void setMinimum(float minimum) {
         this.minimum = minimum;
     }
 
-    public Float getMaximum() {
+    public float getMaximum() {
         return maximum;
     }
 
-    public void setMaximum(Float maximum) {
+    public void setMaximum(float maximum) {
         this.maximum = maximum;
     }
 
@@ -41,9 +41,9 @@ public class PriceRange {
     @Override
     public String toString() {
         return "PriceRange{" +
-                "minimum=" + minimum +
+                "currency='" + currency + '\'' +
                 ", maximum=" + maximum +
-                ", currency='" + currency + '\'' +
+                ", minimum=" + minimum +
                 '}';
     }
 }

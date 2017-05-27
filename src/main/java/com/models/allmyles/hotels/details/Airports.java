@@ -7,7 +7,7 @@ public class Airports {
     String airport_code;
     String airport_name;
     String direction;
-    double distance;
+    float distance;
     String unit;
 
 
@@ -35,11 +35,11 @@ public class Airports {
         this.direction = direction;
     }
 
-    public double getDistance() {
+    public float getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(float distance) {
         this.distance = distance;
     }
 

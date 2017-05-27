@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Miscellaneous {
     String direction;
-    double distance;
+    float distance;
     String name;
     String type;
     String unit;
@@ -19,11 +19,11 @@ public class Miscellaneous {
         this.direction = direction;
     }
 
-    public double getDistance() {
+    public float getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(float distance) {
         this.distance = distance;
     }
 
@@ -56,7 +56,7 @@ public class Miscellaneous {
     public String toString() {
         return "Miscellaneous{" +
                 "direction='" + direction + '\'' +
-                ", distance=" + distance +
+                ", distance='" + distance + '\'' +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", unit='" + unit + '\'' +

@@ -91,15 +91,15 @@ public class Rules {
     @Override
     public String toString() {
         return "Rules{" +
-                "guarantee='" + guarantee + '\'' +
-                ", safety='" + safety + '\'' +
-                ", extra_occupants='" + extra_occupants + '\'' +
-                ", policy='" + policy + '\'' +
-                ", charges='" + charges + '\'' +
+                "charges='" + charges + '\'' +
                 ", deposit='" + deposit + '\'' +
+                ", extra_occupants='" + extra_occupants + '\'' +
+                ", guarantee='" + guarantee + '\'' +
                 ", meals='" + meals + '\'' +
+                ", policy='" + policy + '\'' +
+                ", safety='" + safety + '\'' +
                 ", stay='" + stay + '\'' +
-                ", tax='" + tax + '\'' +
+                ", tax='" + tax +
                 '}';
     }
 }
