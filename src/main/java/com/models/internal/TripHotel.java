@@ -16,5 +16,9 @@ public class TripHotel {
     private String hotel_name;
     private Date start_date;
     private Date end_date;
+    private int trip_id;
+    //not yet created in database - this will contain the id of the actual booking
+    private int bookingId;
+
 
 }
