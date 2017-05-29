@@ -4,6 +4,8 @@ import com.apis.APIResponse;
 import com.mappers.UserMapper;
 import com.models.internal.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -47,6 +49,7 @@ public class UserService {
     }
 
     // Read
+    @Cacheable("tasks")
     public APIResponse getAll(){
         try {
             // make sure there are users
@@ -67,8 +70,11 @@ public class UserService {
         // return APIResponse object to resource
         return response;
     }
+
+    //cache for each id
+    @Cacheable(cacheNames = "tasks", key = "#id")
     public APIResponse getById(int id){
-        try {
+        try{
             // make sure user exists
             if (exists(mapper.getById(id))) {
                 // set APIResponse body, status, and message
