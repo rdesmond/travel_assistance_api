@@ -24,20 +24,14 @@ public class TripResource {
 
     //Read
 
-//    @RequestMapping("/")
-//    public APIResponse getAll(){
-//        return service.getAll();
-//    }
-
-    //make this also require a user_id - or control who can get what trips
-    @RequestMapping("/{id}")
-    public APIResponse getById(@PathVariable(value="id")int id) {
-        return service.getById(id);
-    }
-
     @RequestMapping("/{user_id}")
     public APIResponse getByUserId(@PathVariable(value="user_id")int user_id){
         return service.getByUserId(user_id);
+    }
+
+    @RequestMapping("/{user_id}/{id}")
+    public APIResponse getById(@PathVariable(value="user_id")int user_id, @PathVariable(value="id")int id) {
+        return service.getById(user_id, id);
     }
 
     //Update

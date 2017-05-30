@@ -2,12 +2,14 @@ package com.services;
 
 import com.apis.APIResponse;
 import com.mappers.TripMapper;
+import com.models.TripTag;
 import com.models.internal.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**Receives the Trip or TripId from the resource, passes to the mapper, and returns an APIResponse.
  * Each method will check if the trip exists and respond accordingly and handle any exceptions.
@@ -32,7 +34,7 @@ public class TripService {
                 // create the trip in the DB by passing the trip object from the resource to the mapper
                 mapper.addNew(trip);
                 // set APIResponse body, status, and message
-                response.setBody(mapper.getById(trip.getId()));
+                response.setBody(mapper.getByIdOnly(trip.getId()));
                 response.setStatus(HttpStatus.CREATED);
                 response.setMessage("Successfully created TripId: " + trip.getId());
             }
@@ -66,12 +68,12 @@ public class TripService {
         // return APIResponse object to resource
         return response;
     }
-    public APIResponse getById(int id){
+    public APIResponse getById(int user_id, int id){
         try {
             // make sure trip exists
-            if (exists(mapper.getById(id))) {
+            if (exists(mapper.getById(user_id, id))) {
                 // set APIResponse body, status, and message
-                response.setBody(mapper.getById(id));
+                response.setBody(mapper.getById(user_id, id));
                 response.setStatus(HttpStatus.OK);
             }else {
                 response.setStatus(HttpStatus.BAD_REQUEST);
@@ -114,7 +116,7 @@ public class TripService {
                 // update the trip in the DB by passing the trip object from the resource to the mapper
                 int id = mapper.updateById(trip);
                 // set APIResponse body, status, and message
-                response.setBody(mapper.getById(id));
+                response.setBody(mapper.getByIdOnly(id));
                 response.setStatus(HttpStatus.OK);
                 response.setMessage("Successfully updated TripId: "+ trip.getId());
             } else {
@@ -134,7 +136,7 @@ public class TripService {
     public APIResponse deleteById(int id){
         try {
             // make sure trip exists
-            if (exists(mapper.getById(id))) {
+            if (exists(mapper.getByIdOnly(id))) {
                 // delete the trip in the DB by passing the trip object from the resource to the mapper
                 int result = mapper.deleteById(id);
                 // set APIResponse body, status, and message based on result of action
@@ -162,10 +164,11 @@ public class TripService {
     public boolean exists(Trip trip) {
         try {
             // returns true if the id or email returns a trip
-            return (mapper.getById(trip.getId()) != null);
+            return (mapper.getByIdOnly(trip.getId()) != null);
         }catch (Exception readError){
             return false;
         }
     }
+
 
 }

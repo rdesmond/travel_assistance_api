@@ -27,8 +27,26 @@ public class Trip {
     private List<TripFlight> flights;
     private List<TripHotel> hotels;
     private List<TripCar> cars;
-    private List<TripTag> tags;
-
+    //private List<TripTag> tags;
+    // Not sure yet if I need these
+    private int trip_destination_id;
+    private int trip_flight_id;
+    private int trip_hotel_id;
+    private int trip_car_id;
+    //using until I can figure out how to just use enum list
+    private int value =0;
+    private int beach =0;
+    private int culture =0;
+    private int food =0;
+    private int luxury =0;
+    private int mountain =0;
+    private int tropical =0;
+    private int desert =0;
+    private int adventure =0;
+    private int romance =0;
+    private int relaxation =0;
+    private int nature =0;
+    private int sports =0;
 
     //Constructors
     public Trip() {
@@ -135,11 +153,11 @@ public class Trip {
         this.budget = budget;
     }
 
-    public List<TripTag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<TripTag> tags) {
-        this.tags = tags;
-    }
+//    public List<TripTag> getTags() {
+//        return tags;
+//    }
+//
+//    public void setTags(List<TripTag> tags) {
+//        this.tags = tags;
+//    }
 }
