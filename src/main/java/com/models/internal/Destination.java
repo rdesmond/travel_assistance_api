@@ -16,10 +16,27 @@ public class Destination {
     int id;
     private String name;
     private String country;
-    private String iso_region;
+    private String sub_region;
     private String iso_country;
     private int population;
-    private List<TripTag> tags;
+    //private List<TripTag> tags;
+    //using until I can figure out how to just use enum list
+    private int value =0;
+    private int beach =0;
+    private int culture =0;
+    private int food =0;
+    private int luxury =0;
+    private int mountain =0;
+    private int tropical =0;
+    private int desert =0;
+    private int adventure =0;
+    private int romance =0;
+    private int relaxation =0;
+    private int nature =0;
+    private int sports =0;
+    //using instead of matching destination to an airport code in the database - ideally we could make that work so
+    // we could search other nearby airports
+    private String iata_code;
 
     public Destination() {
         //default
@@ -32,14 +49,14 @@ public class Destination {
 
     public Destination(String name, String iso_region, String iso_country) {
         this.name = name;
-        this.iso_region = iso_region;
+        this.sub_region = iso_region;
         this.iso_country = iso_country;
     }
 
     public Destination(String name, String country, String iso_region, String iso_country, int population) {
         this.name = name;
         this.country = country;
-        this.iso_region = iso_region;
+        this.sub_region = iso_region;
         this.iso_country = iso_country;
         this.population = population;
     }
@@ -61,11 +78,11 @@ public class Destination {
     }
 
     public String getIso_region() {
-        return iso_region;
+        return sub_region;
     }
 
     public void setIso_region(String iso_region) {
-        this.iso_region = iso_region;
+        this.sub_region = iso_region;
     }
 
     public String getIso_country() {
@@ -84,21 +101,7 @@ public class Destination {
         this.country = country;
     }
 
-    public int getPopulation() {
-        return population;
-    }
 
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
-    public List<TripTag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<TripTag> tags) {
-        this.tags = tags;
-    }
 
     @Override
     public String toString() {
@@ -106,10 +109,9 @@ public class Destination {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
-                ", iso_region='" + iso_region + '\'' +
+                ", iso_region='" + sub_region + '\'' +
                 ", iso_country='" + iso_country + '\'' +
                 ", population=" + population +
-                ", tags=" + tags +
                 '}';
     }
 }

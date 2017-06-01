@@ -23,6 +23,7 @@ public class Trip {
     private Date end_date;
     private int num_travellers;
     private BigDecimal budget;
+    private String sub_region;
     private List<Destination> destinations;
     private List<TripFlight> flights;
     private List<TripHotel> hotels;
@@ -52,15 +53,20 @@ public class Trip {
     public Trip() {
         //default
     }
-    public Trip(int user_id, Date start_date, Date end_date, int num_travellers) {
+
+    public Trip(int user_id, Date start_date, Date end_date, int num_travellers, BigDecimal budget, String sub_region) {
         this.user_id = user_id;
         this.start_date = start_date;
         this.end_date = end_date;
         this.num_travellers = num_travellers;
+        this.budget = budget;
+        this.sub_region = sub_region;
     }
+
     public Trip(int user_id) {
         this.user_id = user_id;
     }
+
     public Trip(int user_id, Date start_date, Date end_date, int num_travellers, List<Destination> destinations,
                 List<TripFlight> flights, List<TripHotel> hotels, List<TripCar> cars) {
         this.user_id = user_id;
@@ -153,11 +159,147 @@ public class Trip {
         this.budget = budget;
     }
 
-//    public List<TripTag> getTags() {
-//        return tags;
-//    }
-//
-//    public void setTags(List<TripTag> tags) {
-//        this.tags = tags;
-//    }
+    public String getSub_region() {
+        return sub_region;
+    }
+
+    public void setSub_region(String sub_region) {
+        this.sub_region = sub_region;
+    }
+
+    public int getTrip_destination_id() {
+        return trip_destination_id;
+    }
+
+    public void setTrip_destination_id(int trip_destination_id) {
+        this.trip_destination_id = trip_destination_id;
+    }
+
+    public int getTrip_flight_id() {
+        return trip_flight_id;
+    }
+
+    public void setTrip_flight_id(int trip_flight_id) {
+        this.trip_flight_id = trip_flight_id;
+    }
+
+    public int getTrip_hotel_id() {
+        return trip_hotel_id;
+    }
+
+    public void setTrip_hotel_id(int trip_hotel_id) {
+        this.trip_hotel_id = trip_hotel_id;
+    }
+
+    public int getTrip_car_id() {
+        return trip_car_id;
+    }
+
+    public void setTrip_car_id(int trip_car_id) {
+        this.trip_car_id = trip_car_id;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public int getBeach() {
+        return beach;
+    }
+
+    public void setBeach(int beach) {
+        this.beach = beach;
+    }
+
+    public int getCulture() {
+        return culture;
+    }
+
+    public void setCulture(int culture) {
+        this.culture = culture;
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    public int getLuxury() {
+        return luxury;
+    }
+
+    public void setLuxury(int luxury) {
+        this.luxury = luxury;
+    }
+
+    public int getMountain() {
+        return mountain;
+    }
+
+    public void setMountain(int mountain) {
+        this.mountain = mountain;
+    }
+
+    public int getTropical() {
+        return tropical;
+    }
+
+    public void setTropical(int tropical) {
+        this.tropical = tropical;
+    }
+
+    public int getDesert() {
+        return desert;
+    }
+
+    public void setDesert(int desert) {
+        this.desert = desert;
+    }
+
+    public int getAdventure() {
+        return adventure;
+    }
+
+    public void setAdventure(int adventure) {
+        this.adventure = adventure;
+    }
+
+    public int getRomance() {
+        return romance;
+    }
+
+    public void setRomance(int romance) {
+        this.romance = romance;
+    }
+
+    public int getRelaxation() {
+        return relaxation;
+    }
+
+    public void setRelaxation(int relaxation) {
+        this.relaxation = relaxation;
+    }
+
+    public int getNature() {
+        return nature;
+    }
+
+    public void setNature(int nature) {
+        this.nature = nature;
+    }
+
+    public int getSports() {
+        return sports;
+    }
+
+    public void setSports(int sports) {
+        this.sports = sports;
+    }
 }
