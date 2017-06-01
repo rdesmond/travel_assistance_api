@@ -7,7 +7,7 @@ package com.models;
  */
 public enum TripTag {
 
-    VALUE, BEACH, CULTURE, FOOD, LUXURY, MOUNTAIN, TROPICAL, DESERT, ADVENTURE, ROMANCE, RELAXATION, NATURE, SPORTS;
+    value, beach, culture, food, luxury, mountain, tropical, desert, adventure, romance, relaxation, nature, sports;
 
     //Confirm that a given string is a valid tag
     public int matchingTag(String givenTag){
@@ -18,4 +18,6 @@ public enum TripTag {
         }
         return 0;
     }
+
+
 }

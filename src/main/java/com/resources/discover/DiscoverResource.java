@@ -24,7 +24,7 @@ public class DiscoverResource {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public APIResponse discover(@RequestBody Trip tripRequest){
         //map parameters in the body to a trip object and pass to the service
-        return service.discover(tripRequest);
+        return service.discoverDestinations(tripRequest);
     }
 
     //This might be redundant depending on how the booking resource looks

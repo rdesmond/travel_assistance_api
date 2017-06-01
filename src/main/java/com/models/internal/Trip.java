@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.models.TripTag;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,13 +29,15 @@ public class Trip {
     private List<TripFlight> flights;
     private List<TripHotel> hotels;
     private List<TripCar> cars;
-    //private List<TripTag> tags;
-    // Not sure yet if I need these
+    // Not sure yet if I need these, this would match the database
     private int trip_destination_id;
     private int trip_flight_id;
     private int trip_hotel_id;
     private int trip_car_id;
-    //using until I can figure out how to just use enum list
+    //This may not be necessary. The problem is that the database can't hold an array. I'm using the
+    // createTripTagList method below to populate this
+    private List<TripTag> tags;
+    //using until I can figure out how to just use a list of TripTags
     private int value =0;
     private int beach =0;
     private int culture =0;
@@ -48,6 +51,37 @@ public class Trip {
     private int relaxation =0;
     private int nature =0;
     private int sports =0;
+
+    public ArrayList<TripTag> createTripTagList() {
+        ArrayList<TripTag> tags = new ArrayList<>();
+        if (value == 1)
+            tags.add(TripTag.value);
+        if (beach == 1)
+            tags.add(TripTag.beach);
+        if (culture == 1)
+            tags.add(TripTag.culture);
+        if (food == 1)
+            tags.add(TripTag.food);
+        if (luxury == 1)
+            tags.add(TripTag.luxury);
+        if (mountain == 1)
+            tags.add(TripTag.mountain);
+        if (tropical == 1)
+            tags.add(TripTag.tropical);
+        if (desert == 1)
+            tags.add(TripTag.desert);
+        if (adventure == 1)
+            tags.add(TripTag.adventure);
+        if (romance == 1)
+            tags.add(TripTag.romance);
+        if (relaxation == 1)
+            tags.add(TripTag.relaxation);
+        if (nature == 1)
+            tags.add(TripTag.nature);
+        if (sports == 1)
+            tags.add(TripTag.sports);
+        return tags;
+    }
 
     //Constructors
     public Trip() {

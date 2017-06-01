@@ -8,7 +8,6 @@ import com.services.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,29 +19,59 @@ public class DiscoverService {
     @Autowired
     private APIResponse response;
 
-    // I haven't created this class yet
     @Autowired
     private DestinationService service;
 
-    // format to accept parameters from the resource (as a trip object?)
-    public APIResponse discover(Trip tripRequest){
-//        try {
-//            //get all the destinations
-//            List<Destination> destinations = service.getAll();
-//            //iterate through the list to compare TripTag enums
-//            for (Destination x : destinations){
-//                List<TripTag> tags = x.getTags();
-//                //compare these tags to those
-//            }
-//
-//            response.setBody(destinations);
-//            response.setStatus(HttpStatus.OK);
-//        }catch (Exception readError) {
-//            // set APIResponse status and message
-//            response.setStatus(HttpStatus.BAD_REQUEST);
-//            response.setMessage("Unable to process request: "+ readError.getMessage());
-//        }
-//        // return APIResponse object to resource
+    /** This takes in a trip object and returns a list of possible destinations based on sub_region and tags
+     *
+     * I still need to figure out how to also return the information required to then book a trip
+     *
+     * @param tripRequest this is passed from the body of the request
+     * @return an APIResponse with a list of possible destinations in the body
+     */
+    public APIResponse discoverDestinations(Trip tripRequest){
+        // create an empty list of possible destinations
+        List<Destination> possibleDestinations;
+        // turn tags into a List that can be iterated through
+        List<TripTag> requestedTags = tripRequest.createTripTagList();
+        try {
+            //get possible destinations
+            if (tripRequest.getSub_region() != null) {
+                //get all the destinations in the requested region
+                possibleDestinations = service.getBySubRegion(tripRequest.getSub_region());
+            }else {
+                //get all destinations
+                possibleDestinations = service.getAll();
+            }
+            //iterate through the possible destinations and determine if any tags match
+            for (Destination x : possibleDestinations){
+                List<TripTag> destinationTags = x.createTripTagList();
+                //removes any tags that do not match those requested
+                destinationTags.retainAll(requestedTags);
+                //if there are no matches, the destination is removed from the list
+                if (destinationTags.isEmpty()){
+                    possibleDestinations.remove(x);
+                }
+            }
+            // set response
+            response.setBody(possibleDestinations);
+            response.setStatus(HttpStatus.OK);
+        }catch (Exception readError) {
+            // set APIResponse status and message
+            response.setStatus(HttpStatus.BAD_REQUEST);
+            response.setMessage("Unable to process request: "+ readError.getMessage());
+        }
+        // return APIResponse object to resource
         return response;
     }
+
+
+    public APIResponse discoverBook(Trip tripRequest){
+
+        // this is a placeholder
+
+        return response;
+    }
+
+
 }

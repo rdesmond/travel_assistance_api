@@ -1,6 +1,8 @@
 package com.services;
 
 import com.apis.APIResponse;
+import com.mappers.DestinationMapper;
+import com.models.internal.Destination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -13,28 +15,24 @@ import java.util.ArrayList;
 @Service
 public class DestinationService {
 
+
     @Autowired
-    private APIResponse response;
+    private DestinationMapper mapper;
 
     // Read
-    public APIResponse getAll(){
-//        try {
-//            // make sure there are trips
-//            ArrayList<Trip> trips = mapper.getAll();
-//            // set APIResponse body, status, and message
-//            if (trips.size() == 0) {
-//                response.setStatus(HttpStatus.NO_CONTENT);
-//                response.setMessage("No trips found");
-//            } else {
-//                response.setBody(trips);
-//                response.setStatus(HttpStatus.OK);
-//            }
-//        }catch (Exception readError) {
-//            // set APIResponse status and message
-//            response.setStatus(HttpStatus.BAD_REQUEST);
-//            response.setMessage("Unable to process request: "+ readError.getMessage());
-//        }
-//        // return APIResponse object to resource
-        return response;
+    public ArrayList<Destination> getAll(){
+            return mapper.getAll();
+    }
+
+    public ArrayList<Destination> getBySubRegion(String sub_region){
+        return mapper.getBySubRegion(sub_region);
+    }
+
+    public ArrayList<Destination> getByTag(String tag){
+        return mapper.getByTag(tag);
+    }
+
+    public ArrayList<Destination> getByCountry(String country) {
+        return mapper.getByCountry(country);
     }
 }
