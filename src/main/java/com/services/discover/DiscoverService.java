@@ -8,6 +8,8 @@ import com.services.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,8 +32,10 @@ public class DiscoverService {
      * @return an APIResponse with a list of possible destinations in the body
      */
     public APIResponse discoverDestinations(Trip tripRequest){
-        // create an empty list of possible destinations
+        // create an temporary list of all possible destinations
         List<Destination> possibleDestinations;
+        //create a list to hold matching destinations
+        List<Destination> matchingDestinations = new ArrayList<>();
         // turn tags into a List that can be iterated through
         List<TripTag> requestedTags = tripRequest.createTripTagList();
         try {
@@ -49,12 +53,12 @@ public class DiscoverService {
                 //removes any tags that do not match those requested
                 destinationTags.retainAll(requestedTags);
                 //if there are no matches, the destination is removed from the list
-                if (destinationTags.isEmpty()){
-                    possibleDestinations.remove(x);
+                if (destinationTags.size() >= 1){
+                    matchingDestinations.add(x);
                 }
             }
             // set response
-            response.setBody(possibleDestinations);
+            response.setBody(matchingDestinations);
             response.setStatus(HttpStatus.OK);
         }catch (Exception readError) {
             // set APIResponse status and message

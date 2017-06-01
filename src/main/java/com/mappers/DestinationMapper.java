@@ -13,9 +13,9 @@ public interface DestinationMapper {
     //SQL queries
     String GET_ALL  = "select * from destinations";
     String GET_BY_ID = "select * from destinations where id = #{id}";
-    String GET_BY_SUB_REGION = "SELECT name, country FROM destinations WHERE sub_region = #{sub_region}";
-    String GET_BY_TAG = "SELECT name, country FROM destinations WHERE #{tag} = 1";
-    String GET_BY_COUNTRY = "SELECT name, sub_region FROM destinations WHERE country = #{country}";
+    String GET_BY_SUB_REGION = "SELECT * FROM destinations WHERE sub_region = #{sub_region}";
+    String GET_BY_TAG = "SELECT * FROM destinations WHERE #{tag} = 1";
+    String GET_BY_COUNTRY = "SELECT * FROM destinations WHERE country = #{country}";
 
     //Read
     @Select(GET_ALL)
