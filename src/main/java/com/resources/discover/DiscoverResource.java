@@ -17,23 +17,23 @@ public class DiscoverResource {
     @Autowired
     private DiscoverService service;
 
-    // This needs to accept a body with parameters
-    // Make this a post request
-    @RequestMapping("/")
-    public APIResponse discover(){
+    // Create
+    // this will accept a post request with a body containing a trip object
+    // the trip object should contain the details you'd like in a trip and this will return matching destinations
+    // and links to book (using "/discover/book")
+    @RequestMapping(method = RequestMethod.POST, value = "/")
+    public APIResponse discover(@RequestBody Trip tripRequest){
         //map parameters in the body to a trip object and pass to the service
-        Trip tripRequest = new Trip();//placeholder
         return service.discover(tripRequest);
     }
 
     //This might be redundant depending on how the booking resource looks
-
-    //This needs to accept url parameters with a tripId
-    //It will then send the necessary info to the booking service
-    //Make this a post request
-    @RequestMapping("/book")
+    //This needs to accept url parameters with a tripId or it could just accept a trip object, your choice
+    //It will then send the necessary info to the booking service(not sure if that exists yet or will even be created)
+    @RequestMapping(method = RequestMethod.POST, value = "/book")
     public APIResponse discoverBook(){
-        Trip tripRequest = new Trip();//placeholder
+        Trip tripRequest = new Trip();//placeholder - you'd actually just look up a trip by id, or accept a trip in the
+        // body of the request
         return service.discover(tripRequest);
     }
 }
