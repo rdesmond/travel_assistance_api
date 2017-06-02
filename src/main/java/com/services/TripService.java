@@ -112,9 +112,9 @@ public class TripService {
             // make sure trip exists
             if (exists(trip)) {
                 // update the trip in the DB by passing the trip object from the resource to the mapper
-                int id = mapper.updateById(trip);
+                mapper.updateById(trip);
                 // set APIResponse body, status, and message
-                response.setBody(mapper.getByIdOnly(id));
+                response.setBody(mapper.getByIdOnly(trip.getId()));
                 response.setStatus(HttpStatus.OK);
                 response.setMessage("Successfully updated TripId: "+ trip.getId());
             } else {

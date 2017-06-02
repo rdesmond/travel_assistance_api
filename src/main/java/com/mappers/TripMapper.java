@@ -22,21 +22,21 @@ public interface TripMapper {
             "start_date = #{start_date}, " +
             "end_date = #{end_date}, " +
             "num_travellers = #{num_travellers}, " +
-            "budget = #{budget}," +
-            "value = #{value}," +
-            "beach = #{beach}," +
-            "culture = #{culture}," +
-            "food = #{food}," +
-            "luxury = #{luxury}," +
-            "mountain = #{mountain}," +
-            "tropical = #{tropical}," +
-            "desert = #{desert}," +
-            "adventure = #{adventure}," +
-            "romance = #{romance}," +
-            "relaxation = #{relaxation}," +
-            "nature = #{nature}," +
-            "sports = #{sports}" +
-            "where id = #{id}";
+            "budget = #{budget}, " +
+            "value = #{value}, " +
+            "beach = #{beach}, " +
+            "culture = #{culture}, " +
+            "food = #{food}, " +
+            "luxury = #{luxury}, " +
+            "mountain = #{mountain}, " +
+            "tropical = #{tropical}, " +
+            "desert = #{desert}, " +
+            "adventure = #{adventure}, " +
+            "romance = #{romance}, " +
+            "relaxation = #{relaxation}, " +
+            "nature = #{nature}, " +
+            "sports = #{sports} " +
+            "where id = #{id} ";
     String ADD_NEW = "insert into trips " +
             "(user_id, start_date, end_date, num_travellers, budget, value, beach, culture, food, luxury, mountain, "+
             "tropical, desert, adventure, romance, relaxation, nature, sports)" +
@@ -58,7 +58,7 @@ public interface TripMapper {
     Trip getByIdOnly(int id);
 
     @Select(GET_BY_ID_AND_USER)
-    Trip getById(int user_id, int id);
+    Trip getById(@Param("user_id")int user_id, @Param("id")int id);
 
     @Select(GET_BY_USER_ID)
     ArrayList<Trip> getByUserId(int user_id);
