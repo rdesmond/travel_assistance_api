@@ -1,4 +1,4 @@
-package com.models;
+package com.models.internal;
 
 /** Enum that contains possible tags for trips and destinations. This should match the boolean values in the
  * destinations table in the DB.

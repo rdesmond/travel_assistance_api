@@ -2,14 +2,12 @@ package com.services;
 
 import com.apis.APIResponse;
 import com.mappers.TripMapper;
-import com.models.TripTag;
 import com.models.internal.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**Receives the Trip or TripId from the resource, passes to the mapper, and returns an APIResponse.
  * Each method will check if the trip exists and respond accordingly and handle any exceptions.

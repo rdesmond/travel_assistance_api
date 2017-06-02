@@ -1,7 +1,7 @@
 package com.services.discover;
 
 import com.apis.APIResponse;
-import com.models.TripTag;
+import com.models.internal.TripTag;
 import com.models.internal.Destination;
 import com.models.internal.Trip;
 import com.services.DestinationService;

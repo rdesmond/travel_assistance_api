@@ -2,7 +2,6 @@ package com.models.internal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.models.TripTag;
 
 import java.util.ArrayList;
 import java.util.List;
