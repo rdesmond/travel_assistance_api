@@ -16,6 +16,7 @@ public interface DestinationMapper {
     String GET_BY_SUB_REGION = "SELECT * FROM destinations WHERE sub_region = #{sub_region}";
     String GET_BY_TAG = "SELECT * FROM destinations WHERE #{tag} = 1";
     String GET_BY_COUNTRY = "SELECT * FROM destinations WHERE country = #{country}";
+    String GET_IATA = "SELECT iata_code FROM airports where name = #{destination}";
 
     //Read
     @Select(GET_ALL)
@@ -32,5 +33,8 @@ public interface DestinationMapper {
 
     @Select(GET_BY_COUNTRY)
     ArrayList<Destination> getByCountry(String country);
+
+    @Select(GET_IATA)
+    String[] getIATA(String destination);
 
 }

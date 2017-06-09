@@ -25,8 +25,8 @@ public class DiscoverResource {
      * @param tripRequest
      * @return APIResponse with a body containing matching destinations
      */
-    @RequestMapping(method = RequestMethod.POST, value = "/")
-    public APIResponse discover(@RequestBody Trip tripRequest){
+    @RequestMapping(method = RequestMethod.POST, value = "/destinations")
+    public APIResponse discoverDestinations(@RequestBody Trip tripRequest){
         //map parameters in the body to a trip object and pass to the service
         return service.discoverDestinations(tripRequest);
     }
@@ -40,10 +40,8 @@ public class DiscoverResource {
      *
      * @return
      */
-    @RequestMapping(method = RequestMethod.POST, value = "/book")
-    public APIResponse discoverBook(){
-        Trip tripRequest = new Trip();//placeholder - you'd actually just look up a trip by id, or accept a trip in the
-        // body of the request
-        return service.discoverBook(tripRequest);
+    @RequestMapping(method = RequestMethod.POST, value = "/")
+    public APIResponse discover(@RequestBody Trip trip){
+        return service.discover(trip);
     }
 }

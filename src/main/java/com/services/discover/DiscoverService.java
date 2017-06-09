@@ -1,10 +1,17 @@
 package com.services.discover;
 
 import com.apis.APIResponse;
+import com.mappers.DestinationMapper;
+import com.mappers.TripMapper;
+import com.models.allmyles.cars.search_cars.request.Filters;
+import com.models.allmyles.cars.search_cars.request.SearchCars;
+import com.models.allmyles.cars.search_cars.response.Car;
+import com.models.allmyles.cars.search_cars.response.CarResults;
 import com.models.internal.TripTag;
 import com.models.internal.Destination;
 import com.models.internal.Trip;
 import com.services.DestinationService;
+import com.services.cars.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -17,6 +24,12 @@ import java.util.List;
  */
 @Service
 public class DiscoverService {
+
+    @Autowired
+    DestinationMapper destinationMapper;
+
+    @Autowired
+    private CarService carService;
 
     @Autowired
     private APIResponse response;
@@ -70,12 +83,43 @@ public class DiscoverService {
     }
 
 
-    public APIResponse discoverBook(Trip tripRequest){
-
-        // this is a placeholder
-
+    public APIResponse discover(Trip trip){
+        List<Destination> destinations = new ArrayList<>();
+        //in the future this should take in multiple destinations
+        //we would run this logic for each destination and return all the trips
+        String destination = trip.getDestinations().get(0).getName();
+        String[] iata = destinationMapper.getIATA(destination);
+        SearchCars searchCars = new SearchCars(iata[0], trip.getStart_date().toString(), trip.getEnd_date().toString());
+        Filters filters = new Filters();
+        String[] filtersType = new String[1];
+        if (trip.getValue() == 1) {
+            filtersType[0] = "2 door car";
+            filters.setType(filtersType);
+            searchCars.setFilter(filters);
+        }
+        else if (trip.getLuxury() == 1) {
+            filtersType[0] = "sport";
+            filters.setType(filtersType);
+            searchCars.setFilter(filters);
+        }
+        else {
+            filtersType[0] = "crossover";
+            filters.setType(filtersType);
+            searchCars.setFilter(filters);
+        }
+        CarResults cars = carService.searchCars(searchCars);
+        List<Car> carList = new ArrayList<>();
+        List<Trip> tripList = new ArrayList<>();
+        for(int x = 0; x < 3; x++) {
+            Trip temp = new Trip();
+            temp.setCar(carList.get(x));
+            tripList.add(temp);
+        }
+        response.setBody(tripList);
         return response;
     }
+
+
 
 
 }

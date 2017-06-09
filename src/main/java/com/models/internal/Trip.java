@@ -2,6 +2,7 @@ package com.models.internal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.models.allmyles.cars.search_cars.response.Car;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -28,6 +29,16 @@ public class Trip {
     private List<TripFlight> flights;
     private List<TripHotel> hotels;
     private List<TripCar> cars;
+    private Car car;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
     // Not sure yet if I need these, this would match the database
     private int trip_destination_id;
     private int trip_flight_id;
